@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj": {}
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookAdmin\\NookAdmin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj": {
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookAdmin\\NookAdmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
-        "projectName": "NookApplication",
-        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookAdmin\\NookAdmin.csproj",
+        "projectName": "NookAdmin",
+        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookAdmin\\NookAdmin.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\obj\\",
+        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookAdmin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,22 +42,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[5.0.12, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[5.0.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
