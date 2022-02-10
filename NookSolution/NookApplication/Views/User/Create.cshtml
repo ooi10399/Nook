@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container d-flex justify-content-center align-items-center">
+
+    <div class="card m-5">
+
+        <div class="card-body p-4">
+            <h2 class="mb-4">Register</h2>
+
+            <form action="Home.html">
+
+                <div class="mt-3 form-outline">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mt-3 form-outline">
+                    <label for="pwd" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+
+                <div class="form-outline flex-fill mt-3">
+                    <label class="form-label" for="repeatpwd">Repeat your password</label>
+                    <input type="password" id="repeatpwd" class="form-control" />
+                </div>
+
+                <div class="mt-3 form-outline">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mt-3 form-outline">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="email" class="form-control" id="phone" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mt-3 form-outline">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label" for="gender">Gender</label>
+
+                    <div class="form-check" id="gender">
+                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Female
+                        <label class="form-check-label" for="radio1"></label>
+                    </div>
+
+                    <div class="form-check" id="gender">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option1" checked>Male
+                        <label class="form-check-label" for="radio2"></label>
+                    </div>
+
+                    <div class="form-check d-flex justify-content-center mt-3">
+                        <input class="form-check-input me-2"
+                               type="checkbox"
+                               value=""
+                               id="form2Example3c" />
+                        <label class="form-check-label" for="form2Example3">
+                            I agree all statements in <a href="#!">Terms of service</a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center m-3">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="reset" class="btn btn-danger">Cancel</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
