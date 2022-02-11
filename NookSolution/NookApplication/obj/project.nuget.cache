@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "KBitb9l3tvuWBxDvcZ6Ecz2qOL4cUZWYSP7OnvTnpdadCVvHuN4J/EqwwwiyVZWCiJyGB4qKOgjzGFJxZm6Bew==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ooi\\Desktop\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
+=======
+  "dgSpecHash": "TymLwAHtBj/rvSO1/znyzjTMJw/o/VV23RkswZg9K9XV+PF57bnJPajUxAxifvrVOOSx95mhGfKQJzAQoCYSbA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
+>>>>>>> cec411f9c940c6226124489f64d8ca6fef454e63
   "expectedPackageFiles": [
     "C:\\Users\\Ooi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ooi\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

@@ -7153,11 +7153,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Ooi\\Desktop\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
       "projectName": "NookApplication",
       "projectPath": "C:\\Users\\Ooi\\Desktop\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
       "packagesPath": "C:\\Users\\Ooi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Ooi\\Desktop\\Nook\\NookSolution\\NookApplication\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
+      "projectName": "NookApplication",
+      "projectPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
+      "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookSolution\\NookApplication\\obj\\",
+>>>>>>> cec411f9c940c6226124489f64d8ca6fef454e63
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ooi\\AppData\\Roaming\\NuGet\\NuGet.Config",
