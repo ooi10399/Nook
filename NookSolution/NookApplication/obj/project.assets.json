@@ -7154,11 +7154,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
       "projectName": "NookApplication",
       "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookSolution\\NookApplication\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
+      "projectName": "NookApplication",
+      "projectPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookSolution\\NookApplication\\NookApplication.csproj",
+      "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookSolution\\NookApplication\\obj\\",
+>>>>>>> master
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
