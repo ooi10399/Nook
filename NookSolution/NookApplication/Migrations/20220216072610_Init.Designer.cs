@@ -10,7 +10,7 @@ using NookApplication.Models;
 namespace NookApplication.Migrations
 {
     [DbContext(typeof(NookContext))]
-    [Migration("20220211063218_Init")]
+    [Migration("20220216072610_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
