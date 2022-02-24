@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj": {}
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj": {
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
         "projectName": "NookAppointmentAPI",
-        "projectPath": "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
-        "packagesPath": "C:\\Users\\Ooi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\obj\\",
+        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Ooi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NookAppointmentAPI.Models;
+using NookAppointmentAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +30,19 @@ namespace NookAppointmentAPI
         {
 
             services.AddControllers();
+            services.AddScoped<IRepo<int, Appointment>, AppointmentRepo>();
+
+            services.AddDbContext<AppointmentContext>(opts =>
+            {
+                opts.UseSqlServer(Configuration["ConnectionStrings:conn"]);
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NookAppointmentAPI", Version = "v1" });
             });
+
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

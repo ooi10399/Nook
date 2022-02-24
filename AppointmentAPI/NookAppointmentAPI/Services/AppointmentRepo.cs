@@ -16,6 +16,9 @@ namespace NookAppointmentAPI.Services
         }
         public Appointment Add(Appointment item)
         {
+            item.PlacementDate = DateTime.Now;
+            item.UpdateDate = DateTime.Now;
+            item.Status = "Pending";
             _context.Appointments.Add(item);
             _context.SaveChanges();
             return item;
@@ -23,14 +26,16 @@ namespace NookAppointmentAPI.Services
 
         public Appointment Delete(int key)
         {
-            var appointment = _context.Appointments.SingleOrDefault(a => a.Id == key);
+            var appointment = GetT(key);
             if (appointment != null)
             {
-                _context.Remove(appointment);
+                appointment.UpdateDate = DateTime.Now;
+                appointment.Status = "Cancel";
+                //_context.Remove(appointment);
                 _context.SaveChanges();
+                return appointment;
             }
-            return appointment;
-
+            return null;
         }
 
         public IEnumerable<Appointment> GetAll()
@@ -40,18 +45,22 @@ namespace NookAppointmentAPI.Services
 
         public Appointment GetT(int key)
         {
-            var appointment = _context.Appointments.SingleOrDefault(a =>a.Id == key);
+            var appointment = _context.Appointments.SingleOrDefault(a =>a.AppointmentId == key);
             return appointment;
         }
 
         public Appointment Update(Appointment item)
         {
-            var appointment = _context.Appointments.SingleOrDefault(a => a.Id == item.Id);
+            var appointment = GetT(item.AppointmentId);
             if (appointment != null)
             {
-                appointment.startDateTime = item.startDateTime;
-                appointment.endDateTime = item.endDateTime;
+                appointment.RenteeUserName = item.RenteeUserName;
+                appointment.RenterUserName = item.RenterUserName;
+                appointment.StartDateTime = item.StartDateTime;
+                appointment.EndDateTime = item.EndDateTime;
                 appointment.Fees = item.Fees;
+                appointment.UpdateDate = DateTime.Now;
+                appointment.Status = item.Status;
                 _context.SaveChanges();
             }
             return appointment;

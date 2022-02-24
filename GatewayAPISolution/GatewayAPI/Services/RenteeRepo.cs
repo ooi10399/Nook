@@ -57,7 +57,7 @@ namespace GatewayAPI.Services
         {
             using (_httpClient)
             {
-                using (var response = await _httpClient.GetAsync("http://localhost:54210/api/Rentee/SingleEmployee?id=" + key))
+                using (var response = await _httpClient.GetAsync("http://localhost:54210/api/Rentee/SingleUser?id=" + key))
                 {
                     if (response.IsSuccessStatusCode)
                     {

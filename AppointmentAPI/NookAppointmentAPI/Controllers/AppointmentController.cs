@@ -19,24 +19,26 @@ namespace NookAppointmentAPI.Controllers
         {
             _repo = repo;
         }
+
         [HttpGet]
-        public ActionResult<IEnumerable<Appointment>> Get()
+        public ActionResult<IEnumerable<Appointment>> Get(string userName)
         {
-            List<Appointment> appointments = _repo.GetAll().ToList();
+            List<Appointment> appointments = _repo.GetAll().Where(a => a.RenteeUserName == userName || a.RenterUserName == userName).ToList();
             if (appointments.Count == 0)
                 return BadRequest("No customers found");
             return Ok(appointments);
         }
 
         [HttpGet]
-        [Route("SingleEmployee")]
+        [Route("SingleAppointment")]
         public ActionResult<Appointment> Get(int id)
         {
             var appointment = _repo.GetT(id);
             if (appointment == null)
-                return NotFound();
-            return Ok(appointment);
+                    return NotFound();
+                return Ok(appointment);           
         }
+
         [HttpPut]
         public ActionResult<Appointment> Put(int id, Appointment appt)
         {
