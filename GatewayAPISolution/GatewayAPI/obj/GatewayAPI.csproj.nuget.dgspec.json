@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {}
+    "C:\\Users\\johan\\source\\repos\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {
+    "C:\\Users\\johan\\source\\repos\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+        "projectUniqueName": "C:\\Users\\johan\\source\\repos\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
         "projectName": "GatewayAPI",
-        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\obj\\",
+        "projectPath": "C:\\Users\\johan\\source\\repos\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+        "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\johan\\source\\repos\\Nook\\GatewayAPISolution\\GatewayAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -88,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

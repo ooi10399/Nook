@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GatewayAPI.Services
 {
-    public class RenteeRepo : IRepo<int, Rentee>
+    public class RenteeRepo : IRepo<int, RenteeDTO>
     {
         private readonly HttpClient _httpClient;
 
@@ -18,7 +18,7 @@ namespace GatewayAPI.Services
             _httpClient = new HttpClient();
 
         }
-        public async Task<Rentee> Add(Rentee item)
+        public async Task<RenteeDTO> Add(RenteeDTO item)
         {
             using (_httpClient)
             {
@@ -28,7 +28,7 @@ namespace GatewayAPI.Services
                     if (response.IsSuccessStatusCode)
                     {
                         string responseText = await response.Content.ReadAsStringAsync();
-                        var ren = JsonConvert.DeserializeObject<Rentee>(responseText);
+                        var ren = JsonConvert.DeserializeObject<RenteeDTO>(responseText);
                         return ren;
                     }
                 }
@@ -36,7 +36,7 @@ namespace GatewayAPI.Services
             return null;
         }
 
-        public async Task<Rentee> Delete(int key)
+        public async Task<RenteeDTO> Delete(int key)
         {
             using (_httpClient)
             {
@@ -45,7 +45,7 @@ namespace GatewayAPI.Services
                     if (response.IsSuccessStatusCode)
                     {
                         string responseText = await response.Content.ReadAsStringAsync();
-                        var ren = JsonConvert.DeserializeObject<Rentee>(responseText);
+                        var ren = JsonConvert.DeserializeObject<RenteeDTO>(responseText);
                         return ren;
                     }
                 }
@@ -53,7 +53,7 @@ namespace GatewayAPI.Services
             return null;
         }
 
-        public async Task<Rentee> Get(int key)
+        public async Task<RenteeDTO> Get(int key)
         {
             using (_httpClient)
             {
@@ -62,7 +62,7 @@ namespace GatewayAPI.Services
                     if (response.IsSuccessStatusCode)
                     {
                         string responseText = await response.Content.ReadAsStringAsync();
-                        var ren = JsonConvert.DeserializeObject<Rentee>(responseText);
+                        var ren = JsonConvert.DeserializeObject<RenteeDTO>(responseText);
                         return ren;
                     }
                 }
@@ -70,7 +70,7 @@ namespace GatewayAPI.Services
             return null;
         }
 
-        public async Task<IEnumerable<Rentee>> GetAll()
+        public async Task<IEnumerable<RenteeDTO>> GetAll()
         {
             using (_httpClient)
             {
@@ -79,7 +79,7 @@ namespace GatewayAPI.Services
                     if (response.IsSuccessStatusCode)
                     {
                         string responseText = await response.Content.ReadAsStringAsync();
-                        var rens = JsonConvert.DeserializeObject<List<Rentee>>(responseText);
+                        var rens = JsonConvert.DeserializeObject<List<RenteeDTO>>(responseText);
                         return rens.ToList();
                     }
                 }
@@ -87,7 +87,7 @@ namespace GatewayAPI.Services
             return null;
         }
 
-        public async Task<Rentee> Update(Rentee item)
+        public async Task<RenteeDTO> Update(RenteeDTO item)
         {
             using (_httpClient)
             {
@@ -97,7 +97,7 @@ namespace GatewayAPI.Services
                     if (response.IsSuccessStatusCode)
                     {
                         string responseText = await response.Content.ReadAsStringAsync();
-                        var ren = JsonConvert.DeserializeObject<Rentee>(responseText);
+                        var ren = JsonConvert.DeserializeObject<RenteeDTO>(responseText);
                         return ren;
                     }
                 }
