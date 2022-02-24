@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using UserAPI.Models;
+
+namespace UserAPI.Services
+{
+    public class RenteeRepo : IRepo<int, Rentee>
+    {
+        private readonly UserDbContext _context;
+
+        public RenteeRepo(UserDbContext context)
+        {
+            _context = context;
+        }
+
+        public ICollection<Rentee> GetAll()
+        {
+            return _context.Rentees.ToList();
+        }
+
+        public Rentee Get(int id)
+        {
+            Rentee ren = _context.Rentees.FirstOrDefault(r => r.UserId == id);
+            return ren;
+        }
+
+        public Rentee Add(Rentee item)
+        {
+            Rentee ren = _context.Rentees.FirstOrDefault(r => r.Email == item.Email);
+            if (ren == null)
+            {
+                _context.Rentees.Add(item);
+                _context.SaveChanges();
+                return ren;
+            }
+            return null;
+
+        }
+
+        public Rentee Delete(int id)
+        {
+            Rentee ren = Get(id);
+            if (ren != null)
+            {
+                _context.Rentees.Remove(ren);
+                _context.SaveChanges();
+            }
+            return null;
+        }
+
+        public Rentee Update(Rentee item)
+        {
+            Rentee ren = _context.Rentees.FirstOrDefault(r => r.UserId == item.UserId);
+            if (ren != null)
+            {
+                ren.FullName = item.FullName;
+                ren.NickName = item.NickName;
+                ren.DOB = item.DOB;
+                ren.About = item.About;
+                ren.Interests = item.Interests;
+                ren.Fee = item.Fee;
+                _context.Rentees.Update(ren);
+                _context.SaveChanges();
+            }
+            return null;
+        }
+    }
+}
