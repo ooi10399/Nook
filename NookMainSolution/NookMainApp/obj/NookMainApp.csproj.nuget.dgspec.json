@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\latest\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {}
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\25022022_singleRepoAddedInMain\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\latest\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\25022022_singleRepoAddedInMain\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\latest\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\25022022_singleRepoAddedInMain\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
         "projectName": "NookMainApp",
-        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\latest\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
+        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\25022022_singleRepoAddedInMain\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\latest\\NookMainSolution\\NookMainApp\\obj\\",
+        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\25022022_singleRepoAddedInMain\\NookMainSolution\\NookMainApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GatewayAPI.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20220223144729_init")]
+    [Migration("20220225062811_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

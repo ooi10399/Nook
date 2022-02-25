@@ -48,7 +48,7 @@ namespace GatewayAPI.Services
                     return null;
             }
             user.Password = "";
-            return new UserDTO() { Username = user.Username, Token = _token.CreateToken(user), UserType = user.UserType };
+            return new UserDTO() { Username = user.Username, Token = _token.CreateToken(user), UserType = myUser.UserType };
         }
     }
 }

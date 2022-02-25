@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NookMainApp.Models;
 using NookMainApp.Services;
+using NookMainApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,16 @@ namespace NookMainApp.Controllers
     {
         private readonly ISingleUserRepo<string, Appointment> _srepo;
         private readonly IRepo<int, Appointment> _repo;
+        private readonly IRepo<string, Rentee> _rrepo;
+        private readonly IRepo<string, Renter> _r_repo;
 
-        public AppointmentController(ISingleUserRepo<string, Appointment> srepo, IRepo<int, Appointment> repo)
+        public AppointmentController(ISingleUserRepo<string, Appointment> srepo, IRepo<int, Appointment> repo, 
+            IRepo<string, Rentee> rrepo, IRepo<string, Renter> r_repo)
         {
             _srepo = srepo;
             _repo = repo;
+            _rrepo = rrepo;
+            _r_repo = r_repo;
         }
         // GET: AppointmentController
         public ActionResult Index()
@@ -31,20 +37,30 @@ namespace NookMainApp.Controllers
             return View();
         }
 
-        // GET: AppointmentController/Create
-        public ActionResult Create()
+        public ActionResult CreateAppointment(string userName)
         {
-            return View();
+            Appointment appointment = new Appointment {RenteeUserName = userName};
+
+            return View(appointment);
         }
 
         // POST: AppointmentController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAppointment(Appointment appointment)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+
+                appointment.RenterUserName = HttpContext.Session.GetString("username");
+                var appt = await _repo.Add(appointment);
+                if(appt != null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
             }
             catch
             {

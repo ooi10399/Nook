@@ -44,6 +44,9 @@ namespace NookMainApp.Controllers
         // GET: RenteeController/Details/5
         public async Task<ActionResult> Details(string id)
         {
+            string token = HttpContext.Session.GetString("token");
+            _repo.GetToken(token);
+
             id = HttpContext.Session.GetString("username");
             var ren = await _repo.Get(id);
             return View(ren);
@@ -51,7 +54,7 @@ namespace NookMainApp.Controllers
 
         // GET: RenteeController/Create
         public ActionResult Create()
-        {
+        {         
             ViewBag.Genders = GetGender();
             return View();
         }
@@ -61,9 +64,11 @@ namespace NookMainApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Rentee ren)
         {
-
             try
             {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+
                 ViewBag.Genders = GetGender();
                 ren.UserId = HttpContext.Session.GetString("username");
                 await _repo.Add(ren);
@@ -78,6 +83,10 @@ namespace NookMainApp.Controllers
         // GET: RenteeController/Edit/5
         public async Task<ActionResult> Edit(string id)
         {
+            string token = HttpContext.Session.GetString("token");
+            _repo.GetToken(token);
+            id = HttpContext.Session.GetString("username");
+
             ViewBag.Genders = GetGender();
             var ren = await _repo.Get(id);
             return View(ren);
@@ -90,6 +99,9 @@ namespace NookMainApp.Controllers
         {
             try
             {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+
                 ViewBag.Genders = GetGender();
                 await _repo.Update(ren);
                 return RedirectToAction("Details");
@@ -103,6 +115,9 @@ namespace NookMainApp.Controllers
         // GET: RenteeController/Delete/5
         public async Task<ActionResult> Delete(string id)
         {
+            string token = HttpContext.Session.GetString("token");
+            _repo.GetToken(token);
+
             var ren = await _repo.Get(id);
             return View(ren);
         }
@@ -114,6 +129,9 @@ namespace NookMainApp.Controllers
         {
             try
             {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+
                 await _repo.Delete(id);
                 return RedirectToAction("myDash", "User");
             }
@@ -125,6 +143,9 @@ namespace NookMainApp.Controllers
 
         public async Task<ActionResult> GetAllRentees()
         {
+            string token = HttpContext.Session.GetString("token");
+            _repo.GetToken(token);
+
             ViewBag.LoginUser = HttpContext.Session.GetString("username");
             var rentees = await _repo.GetAll();
             return View(rentees);
@@ -132,6 +153,10 @@ namespace NookMainApp.Controllers
 
         public async Task<ActionResult> GetRenteeDetails(string userId)
         {
+            string token = HttpContext.Session.GetString("token");
+            _repo.GetToken(token);
+
+            ViewBag.LoginUser = HttpContext.Session.GetString("username");
             var ren = await _repo.Get(userId);
             return View(ren);
         }

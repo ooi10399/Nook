@@ -39,15 +39,21 @@ namespace NookMainApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(User user)
         {
+
             try
             {
                 User usr = await _loginService.Register(user);
-                HttpContext.Session.SetString("token", usr.Token);
-                HttpContext.Session.SetString("username", usr.Username);
-                if (usr.UserType == "Rentee")
-                    return RedirectToAction("Create", "Rentee");
-                if (usr.UserType == "Renter")
-                    return RedirectToAction("Create", "Renter");
+                if(usr != null)
+                {
+                    HttpContext.Session.SetString("token", usr.Token);
+                    HttpContext.Session.SetString("username", usr.Username);
+                    if (usr.UserType == "Rentee")
+                        return RedirectToAction("Create", "Rentee");
+                    if (usr.UserType == "Renter")
+                        return RedirectToAction("Create", "Renter");
+                }
+                var errorMessage = String.Format("Invalid inputs. Email is already registered. Please login or use another account.");
+                ModelState.AddModelError(string.Empty, errorMessage);
                 return View();
             }
             catch
@@ -75,11 +81,10 @@ namespace NookMainApp.Controllers
                 {
                     HttpContext.Session.SetString("token", usr.Token);
                     HttpContext.Session.SetString("username", usr.Username);
-                    return RedirectToAction("Details", "Rentee");
-                    //if (usr.UserType == "Rentee")
-                    //    return RedirectToAction("Details", "Rentee");
-                    //if (usr.UserType == "Renter")
-                    //    return RedirectToAction("Details", "Renter");
+                    if (usr.UserType == "Rentee")
+                        return RedirectToAction("Details", "Rentee");
+                    if (usr.UserType == "Renter")
+                        return RedirectToAction("Details", "Renter");
                 }
                 var errorMessage = String.Format("Invalid username or password");
                 ModelState.AddModelError(string.Empty, errorMessage);
