@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NookMainApp.Models.Rentee>
+
+@{
+    ViewData["Title"] = "GetAllRentees";
+}
+
+<h1>GetAllRentees</h1>
+<h4>@ViewBag.LoginUser</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NickName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.About)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NickName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.About)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "GetRenteeDetails", new { id = item.UserId }) |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

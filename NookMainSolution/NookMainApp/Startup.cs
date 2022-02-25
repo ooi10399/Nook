@@ -27,10 +27,16 @@ namespace NookMainApp
             services.AddControllersWithViews();
 
             // ==================================================================
-            services.AddSession();
+            //services.AddSession();
             services.AddScoped<LoginService>();
             services.AddScoped<IRepo<string, Rentee>, RenteeRepo>();
             services.AddScoped<IRepo<string, Renter>, RenterRepo>();
+            services.AddScoped<IRepo<int, Appointment>, AppointmentRepo>();
+            services.AddScoped<ISingleUserRepo<string, Appointment>, AppointmentRepo>();
+            services.AddSession(opts =>
+            {
+                opts.IdleTimeout = TimeSpan.FromMinutes(5);
+            });
             // ==================================================================
         }
 

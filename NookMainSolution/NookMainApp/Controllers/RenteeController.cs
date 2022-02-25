@@ -122,5 +122,18 @@ namespace NookMainApp.Controllers
                 return View();
             }
         }
+
+        public async Task<ActionResult> GetAllRentees()
+        {
+            ViewBag.LoginUser = HttpContext.Session.GetString("username");
+            var rentees = await _repo.GetAll();
+            return View(rentees);
+        }
+
+        public async Task<ActionResult> GetRenteeDetails(string userId)
+        {
+            var ren = await _repo.Get(userId);
+            return View(ren);
+        }
     }
 }
