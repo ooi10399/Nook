@@ -29,8 +29,8 @@ namespace NookMainApp
             // ==================================================================
             services.AddSession();
             services.AddScoped<LoginService>();
-            services.AddScoped<IRepo<int, Rentee>, RenteeRepo>();
-            //services.AddScoped<IRepo<int, Renter>, RenterRepo>();
+            services.AddScoped<IRepo<string, Rentee>, RenteeRepo>();
+            services.AddScoped<IRepo<string, Renter>, RenterRepo>();
             // ==================================================================
         }
 

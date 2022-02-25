@@ -118,4 +118,6 @@ C:\Users\johan\source\repos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\R
 C:\Users\johan\source\repos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\User\Login.cshtml.g.cs
 C:\Users\johan\source\repos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Rentee\Create.cshtml.g.cs
 C:\Users\johan\source\repos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Rentee\Edit.cshtml.g.cs
+C:\Users\johan\source\repos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Rentee\Index.cshtml.g.cs
+C:\Users\johan\source\repos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Rentee\Delete.cshtml.g.cs
 C:\Users\johan\source\repos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Rentee\Details.cshtml.g.cs

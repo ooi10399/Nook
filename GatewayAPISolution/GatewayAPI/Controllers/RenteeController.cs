@@ -15,9 +15,9 @@ namespace GatewayAPI.Controllers
     [Authorize]
     public class RenteeController : ControllerBase
     {
-        private readonly IRepo<int, RenteeDTO> _repo;
+        private readonly IRepo<string, RenteeDTO> _repo;
 
-        public RenteeController(IRepo<int, RenteeDTO> repo)
+        public RenteeController(IRepo<string, RenteeDTO> repo)
         {
             _repo = repo;
         }
@@ -32,7 +32,7 @@ namespace GatewayAPI.Controllers
 
         [Route("GetRentee")]
         [HttpGet]
-        public async Task<ActionResult<RenteeDTO>> Details(int id)
+        public async Task<ActionResult<RenteeDTO>> Details(string id)
         {
             var ren = await _repo.Get(id);
             if (ren == null)
@@ -52,7 +52,7 @@ namespace GatewayAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<RenteeDTO>> Edit(int id, RenteeDTO ren)
+        public async Task<ActionResult<RenteeDTO>> Edit(string id, RenteeDTO ren)
         {
             var r = await _repo.Update(ren);
             if (r == null)
@@ -61,7 +61,7 @@ namespace GatewayAPI.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<RenteeDTO>> Delete(int id)
+        public async Task<ActionResult<RenteeDTO>> Delete(string id)
         {
             var ren = await _repo.Delete(id);
             if (ren == null)

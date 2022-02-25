@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GatewayAPI.Services
 {
-    public class RenteeRepo : IRepo<int, RenteeDTO>
+    public class RenteeRepo : IRepo<string, RenteeDTO>
     {
         private readonly HttpClient _httpClient;
 
@@ -23,7 +23,7 @@ namespace GatewayAPI.Services
             using (_httpClient)
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
-                using (var response = await _httpClient.PostAsync("http://localhost:54210/api/Rentee", content))
+                using (var response = await _httpClient.PostAsync("http://localhost:24324/api/Rentee", content))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -36,11 +36,11 @@ namespace GatewayAPI.Services
             return null;
         }
 
-        public async Task<RenteeDTO> Delete(int key)
+        public async Task<RenteeDTO> Delete(string key)
         {
             using (_httpClient)
             {
-                using (var response = await _httpClient.DeleteAsync("http://localhost:54210/api/Rentee?id=" + key))
+                using (var response = await _httpClient.DeleteAsync("http://localhost:24324/api/Rentee?id=" + key))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -53,11 +53,11 @@ namespace GatewayAPI.Services
             return null;
         }
 
-        public async Task<RenteeDTO> Get(int key)
+        public async Task<RenteeDTO> Get(string key)
         {
             using (_httpClient)
             {
-                using (var response = await _httpClient.GetAsync("http://localhost:54210/api/Rentee/SingleUser?id=" + key))
+                using (var response = await _httpClient.GetAsync("http://localhost:24324/api/Rentee/SingleUser?id=" + key))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -74,7 +74,7 @@ namespace GatewayAPI.Services
         {
             using (_httpClient)
             {
-                using (var response = await _httpClient.GetAsync("http://localhost:54210/api/Rentee"))
+                using (var response = await _httpClient.GetAsync("http://localhost:24324/api/Rentee"))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -92,7 +92,7 @@ namespace GatewayAPI.Services
             using (_httpClient)
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
-                using (var response = await _httpClient.PutAsync("http://localhost:54210/api/Rentee?id=" + item.UserId, content))
+                using (var response = await _httpClient.PutAsync("http://localhost:24324/api/Rentee?id=" + item.UserId, content))
                 {
                     if (response.IsSuccessStatusCode)
                     {

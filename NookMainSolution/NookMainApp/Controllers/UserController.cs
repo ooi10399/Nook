@@ -71,11 +71,18 @@ namespace NookMainApp.Controllers
             try
             {
                 User usr = await _loginService.Login(user);
-                HttpContext.Session.SetString("token", usr.Token);
-                if (usr.UserType == "Rentee")
+                if (usr != null)
+                {
+                    HttpContext.Session.SetString("token", usr.Token);
+                    HttpContext.Session.SetString("username", usr.Username);
                     return RedirectToAction("Details", "Rentee");
-                if (usr.UserType == "Renter")
-                    return RedirectToAction("Details", "Renter");
+                    //if (usr.UserType == "Rentee")
+                    //    return RedirectToAction("Details", "Rentee");
+                    //if (usr.UserType == "Renter")
+                    //    return RedirectToAction("Details", "Renter");
+                }
+                var errorMessage = String.Format("Invalid username or password");
+                ModelState.AddModelError(string.Empty, errorMessage);
                 return View();
             }
             catch

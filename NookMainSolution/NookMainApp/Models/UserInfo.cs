@@ -16,22 +16,21 @@ namespace NookMainApp.Models
     public class UserInfo
     {
         [Key]
-        public int UserId { get; set; }
-        [Required(ErrorMessage = "Email cannot be empty")]
+        //[Required(ErrorMessage = "Email cannot be empty")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
-        public string Email { get; set; }
-        [Required(ErrorMessage = "Fullname cannot be empty")]
+        public string UserId { get; set; }
+        //[Required(ErrorMessage = "Fullname cannot be empty")]
         [DisplayName("Full Name")]
         public string FullName { get; set; }
         [DisplayName("Nickname")]
         public string NickName { get; set; }
-        [Required(ErrorMessage = "Date of birth cannot be empty")]
+        //[Required(ErrorMessage = "Date of birth cannot be empty")]
         [DisplayName("Birthday")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         //[DateAttribute(ErrorMessage = "You have to be at least 18 years old")]
         public DateTime DOB { get; set; }
-        [Required(ErrorMessage = "Gender cannot be empty")]
+        //[Required(ErrorMessage = "Gender cannot be empty")]
         public string Gender { get; set; }
         public string About { get; set; }
 

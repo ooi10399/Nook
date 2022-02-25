@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NookMainApp.Services
 {
-    public class RenteeRepo : IRepo<int, Rentee>
+    public class RenteeRepo : IRepo<string, Rentee>
     {
         private readonly HttpClient _httpClient;
         private string _token;
@@ -33,7 +33,7 @@ namespace NookMainApp.Services
             using (_httpClient)
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
-                using (var response = await _httpClient.PostAsync("http://localhost:54210/api/Rentee", content))
+                using (var response = await _httpClient.PostAsync("http://localhost:47049/api/Rentee", content))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -46,7 +46,7 @@ namespace NookMainApp.Services
             return null;
         }
 
-        public async Task<Rentee> Delete(int key)
+        public async Task<Rentee> Delete(string key)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
 
@@ -65,7 +65,7 @@ namespace NookMainApp.Services
             return null;
         }
 
-        public async Task<Rentee> Get(int key)
+        public async Task<Rentee> Get(string key)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
 
@@ -106,6 +106,8 @@ namespace NookMainApp.Services
 
         public async Task<Rentee> Update(Rentee item)
         {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
             using (_httpClient)
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");

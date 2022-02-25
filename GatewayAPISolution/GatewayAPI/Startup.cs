@@ -39,7 +39,8 @@ namespace GatewayAPI
 
             services.AddScoped<IManageUser<UserDTO>, ManageUser>();
             services.AddScoped<IGenerateToken<UserDTO>, GenerateToken>();
-            services.AddScoped<IRepo<int, RenteeDTO>, RenteeRepo>();
+            services.AddScoped<IRepo<string, RenteeDTO>, RenteeRepo>();
+            services.AddScoped<IRepo<string, RenterDTO>, RenterRepo>();
             services.AddScoped<IRepo<int, AppointmentDTO>, AppointmentRepo>();
             services.AddScoped<ISingleUserRepo<string, AppointmentDTO>, AppointmentRepo>();
 
