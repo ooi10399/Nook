@@ -35,6 +35,9 @@ namespace NookAppointmentAPI.Migrations
                     b.Property<DateTime>("PlacementDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Remark")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("RenteeUserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -61,8 +64,9 @@ namespace NookAppointmentAPI.Migrations
                             EndDateTime = new DateTime(2022, 12, 31, 15, 15, 23, 0, DateTimeKind.Unspecified),
                             Fees = 22.300000000000001,
                             PlacementDate = new DateTime(2022, 10, 31, 15, 15, 0, 0, DateTimeKind.Unspecified),
-                            RenteeUserName = "101",
-                            RenterUserName = "102",
+                            Remark = "",
+                            RenteeUserName = "elicam@email.com",
+                            RenterUserName = "johndoe@email.com",
                             StartDateTime = new DateTime(2021, 12, 31, 14, 50, 44, 0, DateTimeKind.Unspecified),
                             Status = "Pending",
                             UpdateDate = new DateTime(2022, 10, 31, 15, 15, 0, 0, DateTimeKind.Unspecified)
@@ -73,8 +77,9 @@ namespace NookAppointmentAPI.Migrations
                             EndDateTime = new DateTime(2022, 1, 14, 13, 10, 44, 0, DateTimeKind.Unspecified),
                             Fees = 43.0,
                             PlacementDate = new DateTime(2022, 1, 13, 15, 15, 0, 0, DateTimeKind.Unspecified),
-                            RenteeUserName = "102",
-                            RenterUserName = "105",
+                            Remark = "",
+                            RenteeUserName = "elicam@email.com",
+                            RenterUserName = "janedoe@email.com",
                             StartDateTime = new DateTime(2022, 1, 14, 12, 42, 23, 0, DateTimeKind.Unspecified),
                             Status = "Completed",
                             UpdateDate = new DateTime(2022, 1, 14, 15, 15, 0, 0, DateTimeKind.Unspecified)
@@ -85,8 +90,9 @@ namespace NookAppointmentAPI.Migrations
                             EndDateTime = new DateTime(2022, 1, 30, 19, 30, 53, 0, DateTimeKind.Unspecified),
                             Fees = 23.5,
                             PlacementDate = new DateTime(2022, 1, 10, 15, 15, 0, 0, DateTimeKind.Unspecified),
-                            RenteeUserName = "103",
-                            RenterUserName = "103",
+                            Remark = "",
+                            RenteeUserName = "philc@email.com",
+                            RenterUserName = "johndoe@email.com",
                             StartDateTime = new DateTime(2022, 1, 30, 17, 46, 53, 0, DateTimeKind.Unspecified),
                             Status = "Completed",
                             UpdateDate = new DateTime(2022, 1, 31, 15, 15, 0, 0, DateTimeKind.Unspecified)

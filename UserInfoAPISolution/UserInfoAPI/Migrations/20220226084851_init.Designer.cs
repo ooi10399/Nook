@@ -10,7 +10,7 @@ using UserInfoAPI.Models;
 namespace UserInfoAPI.Migrations
 {
     [DbContext(typeof(UserInfoDbContext))]
-    [Migration("20220225043801_init")]
+    [Migration("20220226084851_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,6 +83,9 @@ namespace UserInfoAPI.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -102,6 +105,7 @@ namespace UserInfoAPI.Migrations
                             Fee = 20.0,
                             FullName = "Elizabeth Cambridge",
                             Gender = "Female",
+                            Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL6pp1VJnOv1D9ATTMZz2ZGzP93IKty-zVQw&usqp=CAU",
                             IsActive = true,
                             NickName = "Eli"
                         },
@@ -113,6 +117,7 @@ namespace UserInfoAPI.Migrations
                             Fee = 20.0,
                             FullName = "Phillip Cambridge",
                             Gender = "Male",
+                            Image = "http://www.zebuinvestments.com/wp-content/uploads/2020/05/Guy-Final.jpg",
                             IsActive = false,
                             NickName = "Phil"
                         });
@@ -135,6 +140,9 @@ namespace UserInfoAPI.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -153,6 +161,7 @@ namespace UserInfoAPI.Migrations
                             DOB = new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "John Doe",
                             Gender = "Male",
+                            Image = "",
                             IsActive = true,
                             NickName = "John"
                         },
@@ -163,6 +172,7 @@ namespace UserInfoAPI.Migrations
                             DOB = new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "Jane Doe",
                             Gender = "Female",
+                            Image = "",
                             IsActive = false,
                             NickName = "Jane"
                         });

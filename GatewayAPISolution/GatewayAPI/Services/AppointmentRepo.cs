@@ -66,12 +66,12 @@ namespace GatewayAPI.Services
             }
             return null;
         }
-
+        
         public async Task<IEnumerable<AppointmentDTO>> GetAll()
         {
             using (_httpClient)
             {
-                using (var response = await _httpClient.GetAsync("http://localhost:11278/api/Appointment"))
+                using (var response = await _httpClient.GetAsync("http://localhost:11278/api/Appointment/AllAppointments"))
                 {
                     if (response.IsSuccessStatusCode)
                     {

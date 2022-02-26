@@ -1,4 +1,5 @@
-﻿using NookAppointmentAPI.Models;
+﻿using NookAppointmentAPI.Constant;
+using NookAppointmentAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace NookAppointmentAPI.Services
             if (appointment != null)
             {
                 appointment.UpdateDate = DateTime.Now;
-                appointment.Status = "Cancel";
+                appointment.Status = AppointmentStatus.Cancel.ToString();
                 //_context.Remove(appointment);
                 _context.SaveChanges();
                 return appointment;
@@ -59,6 +60,7 @@ namespace NookAppointmentAPI.Services
                 appointment.StartDateTime = item.StartDateTime;
                 appointment.EndDateTime = item.EndDateTime;
                 appointment.Fees = item.Fees;
+                appointment.Remark = item.Remark;
                 appointment.UpdateDate = DateTime.Now;
                 appointment.Status = item.Status;
                 _context.SaveChanges();

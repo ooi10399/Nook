@@ -151,13 +151,13 @@ namespace NookMainApp.Controllers
             return View(rentees);
         }
 
-        public async Task<ActionResult> GetRenteeDetails(string userId)
+        public async Task<ActionResult> GetRenteeDetails(string id)
         {
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
             ViewBag.LoginUser = HttpContext.Session.GetString("username");
-            var ren = await _repo.Get(userId);
+            var ren = await _repo.Get(id);
             return View(ren);
         }
     }

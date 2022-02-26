@@ -55,6 +55,7 @@ namespace UserInfoAPI.Services
                 ren.About = item.About;
                 ren.Interests = item.Interests;
                 ren.Fee = item.Fee;
+                ren.Image = item.Image;
                 _context.Rentees.Update(ren);
                 _context.SaveChanges();
             }

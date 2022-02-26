@@ -23,11 +23,20 @@ namespace GatewayAPI.Controllers
             _repo = repo;
             _srepo = srepo;
         }
-        [Route("GetAllAppointments")]
+        [Route("GetUserAppointments")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppointmentDTO>>> IndexAsync(string userName)
         {
             var appointments = await _srepo.GetAll(userName);
+            return Ok(appointments.ToList());
+
+        }
+
+        [Route("GetAllAppointments")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<AppointmentDTO>>> IndexAsync()
+        {
+            var appointments = await _repo.GetAll();
             return Ok(appointments.ToList());
 
         }

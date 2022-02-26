@@ -31,6 +31,7 @@ namespace UserInfoAPI.Migrations
                     DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     About = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -48,6 +49,7 @@ namespace UserInfoAPI.Migrations
                     DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     About = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -90,20 +92,20 @@ namespace UserInfoAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Rentees",
-                columns: new[] { "UserId", "About", "DOB", "Fee", "FullName", "Gender", "IsActive", "NickName" },
+                columns: new[] { "UserId", "About", "DOB", "Fee", "FullName", "Gender", "Image", "IsActive", "NickName" },
                 values: new object[,]
                 {
-                    { "elicam@email.com", "Call me queen.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 20.0, "Elizabeth Cambridge", "Female", true, "Eli" },
-                    { "philc@email.com", "Call me king.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 20.0, "Phillip Cambridge", "Male", false, "Phil" }
+                    { "elicam@email.com", "Call me queen.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 20.0, "Elizabeth Cambridge", "Female", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL6pp1VJnOv1D9ATTMZz2ZGzP93IKty-zVQw&usqp=CAU", true, "Eli" },
+                    { "philc@email.com", "Call me king.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 20.0, "Phillip Cambridge", "Male", "http://www.zebuinvestments.com/wp-content/uploads/2020/05/Guy-Final.jpg", false, "Phil" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Renters",
-                columns: new[] { "UserId", "About", "DOB", "FullName", "Gender", "IsActive", "NickName" },
+                columns: new[] { "UserId", "About", "DOB", "FullName", "Gender", "Image", "IsActive", "NickName" },
                 values: new object[,]
                 {
-                    { "johndoe@email.com", "Will call you queen.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "John Doe", "Male", true, "John" },
-                    { "janedoe@email.com", "Will call you king.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jane Doe", "Female", false, "Jane" }
+                    { "johndoe@email.com", "Will call you queen.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "John Doe", "Male", "", true, "John" },
+                    { "janedoe@email.com", "Will call you king.", new DateTime(1974, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jane Doe", "Female", "", false, "Jane" }
                 });
 
             migrationBuilder.CreateIndex(

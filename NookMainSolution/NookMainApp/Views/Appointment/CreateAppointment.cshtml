@@ -1,66 +1,64 @@
-﻿@model NookMainApp.Models.Appointment
+﻿@model NookMainApp.ViewModels.AppointmentViewModel
 
 @{
     ViewData["Title"] = "CreateAppointment";
 }
 
-<h1>CreateAppointment</h1>
+<h1>Create Appointment</h1>
 
-<h4>Appointment</h4>
+<h4>AppointmentViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateAppointment">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AppointmentId" class="control-label"></label>
-                <input asp-for="AppointmentId" class="form-control" />
-                <span asp-validation-for="AppointmentId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RenteeUserName" class="control-label"></label>
-                <input asp-for="RenteeUserName" class="form-control" />
-                <span asp-validation-for="RenteeUserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RenterUserName" class="control-label"></label>
-                <input asp-for="RenterUserName" class="form-control" />
-                <span asp-validation-for="RenterUserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StartDateTime" class="control-label"></label>
-                <input asp-for="StartDateTime" class="form-control" />
-                <span asp-validation-for="StartDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndDateTime" class="control-label"></label>
-                <input asp-for="EndDateTime" class="form-control" />
-                <span asp-validation-for="EndDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Fees" class="control-label"></label>
-                <input asp-for="Fees" class="form-control" />
-                <span asp-validation-for="Fees" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PlacementDate" class="control-label"></label>
-                <input asp-for="PlacementDate" class="form-control" />
-                <span asp-validation-for="PlacementDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdateDate" class="control-label"></label>
-                <input asp-for="UpdateDate" class="form-control" />
-                <span asp-validation-for="UpdateDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Make Appointment" class="btn btn-primary" />
-            </div>
-        </form>
+      
+
+    <form asp-action="CreateAppointment">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <image asp-for="Rentee.Image" class="form-control" src="@Url.Content(Model.Rentee.Image)" alt="No Image" width="100" length="150"/>
+            @if (ViewBag.Message != "")
+            {
+                <span class="text-danger" id="viewbagMessage">@ViewBag.Message</span>
+            }
+        </div>
+        <div class="form-group">
+            <input asp-for="RenteeUserName" class="form-control" value="@Model.Rentee.UserId" hidden />
+            <span class="text-danger" id="alertMessage"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Rentee.NickName" class="control-label"></label>
+            <input asp-for="Rentee.NickName" class="form-control" value="@Model.Rentee.NickName" readonly />
+            <span asp-validation-for="Rentee.NickName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="StartDateTime" class="control-label"></label>
+            <input asp-for="StartDateTime" onchange="checkStartDate()" class="form-control" />
+            <span asp-validation-for="StartDateTime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EndDateTime" class="control-label"></label>
+            <input asp-for="EndDateTime" onchange="checkEndDate()" class="form-control" />
+            <span asp-validation-for="EndDateTime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Fees" class="control-label"></label>
+            <input asp-for="Fees" class="form-control" value="@Model.Fees" readonly />
+            <span asp-validation-for="Fees" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TotalFees" class="control-label"></label>
+            <input asp-for="TotalFees" id="TotalFees" class="form-control" readonly />
+            <span asp-validation-for="TotalFees" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Remark" class="control-label"></label>
+            <input TextMode="MultiLine" Height="100" asp-for="Remark" class="form-control" />
+            <span asp-validation-for="Remark" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Make Appointment" class="btn btn-primary" />
+        </div>
+    </form>
     </div>
 </div>
 
@@ -70,4 +68,47 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        var earliestDate = new Date(new Date(Date.now()).getTime() + 60 * 60 * 24 * 1000);
+        document.getElementById("StartDateTime").value = earliestDate;
+        document.getElementById("EndDateTime").value = earliestDate;
+
+        document.getElementById("TotalFees").value = Math.Ceil((document.getElementById("EndDateTime").value - document.getElementById("StartDateTime").value) / 3600000);
+
+        function checkStartDate() {
+            var startDate = document.getElementById("StartDateTime").value;
+
+            if (new Date(startDate) < earliestDate) {
+                document.getElementById("alertMessage").innerHTML = "Please enter a date at least a day later.";
+            }
+            else {
+                document.getElementById("alertMessage").innerHTML = "";
+                document.getElementById("EndDateTime").value = startDate;
+            }
+        }
+
+        function checkEndDate() {
+            var end = new Date(document.getElementById("EndDateTime").value);
+
+            var start = new Date(document.getElementById("StartDateTime").value);
+
+            if (end < start) {
+                document.getElementById("alertMessage").innerHTML = "Please enter a valid End Date and Time.";
+                document.getElementById("EndDateTime").value = "";
+            }
+            else {
+                document.getElementById("alertMessage").innerHTML = "";
+                var totalTime = end - start;
+                var timeInHour = Math.ceil(totalTime / 3600000);
+                var totalFee = timeInHour * document.getElementById("Fees").value;
+                document.getElementById("TotalFees").value = totalFee;
+                console.log(totalTime + " " + timeInHour + " " + totalFee);
+
+            }
+        }
+
+    </script>
 }
+
+

@@ -13,6 +13,7 @@ namespace GatewayAPI.Models
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public double Fees { get; set; }
+        public string Remark { get; set; }
         public DateTime PlacementDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public string Status { get; set; }

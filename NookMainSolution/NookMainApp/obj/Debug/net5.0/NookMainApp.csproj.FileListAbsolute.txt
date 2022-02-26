@@ -370,3 +370,7 @@ C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\25022022_singleRepoAddedInMain\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMainApp.genruntimeconfig.cache
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\25022022_singleRepoAddedInMain\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Rentee\GetRenteeDetails.cshtml.g.cs
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\25022022_singleRepoAddedInMain\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\CreateAppointment.cshtml.g.cs
+C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\25022022_singleRepoAddedInMain\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\AllAppointment.cshtml.g.cs
+C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\25022022_singleRepoAddedInMain\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\Edit.cshtml.g.cs
+C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\25022022_singleRepoAddedInMain\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\Details.cshtml.g.cs
+C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\25022022_singleRepoAddedInMain\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\Delete.cshtml.g.cs

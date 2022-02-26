@@ -33,7 +33,7 @@ namespace NookMainApp.Models
         //[Required(ErrorMessage = "Gender cannot be empty")]
         public string Gender { get; set; }
         public string About { get; set; }
-
+        public string Image { get; set; }
         bool value = false;
         public bool IsActive
         {

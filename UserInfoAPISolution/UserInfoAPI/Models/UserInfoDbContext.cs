@@ -30,6 +30,7 @@ namespace UserInfoAPI.Models
                     Gender = "Female",
                     About = "Call me queen.",
                     Fee = 20.0,
+                    Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL6pp1VJnOv1D9ATTMZz2ZGzP93IKty-zVQw&usqp=CAU",
                     IsActive = true
                 },
                 new Rentee()
@@ -40,7 +41,8 @@ namespace UserInfoAPI.Models
                     DOB = new DateTime(1974, 7, 10),
                     Gender = "Male",
                     About = "Call me king.",
-                    Fee = 20.0
+                    Fee = 20.0,
+                    Image = "http://www.zebuinvestments.com/wp-content/uploads/2020/05/Guy-Final.jpg",
                 });
 
             // RENTER
@@ -53,6 +55,7 @@ namespace UserInfoAPI.Models
                     DOB = new DateTime(1974, 7, 10),
                     Gender = "Male",
                     About = "Will call you queen.",
+                    Image = "",
                     IsActive = true
                 },
 
@@ -63,7 +66,8 @@ namespace UserInfoAPI.Models
                     NickName = "Jane",
                     DOB = new DateTime(1974, 7, 10),
                     Gender = "Female",
-                    About = "Will call you king."
+                    About = "Will call you king.",
+                    Image = ""
                 });
 
             // INTEREST

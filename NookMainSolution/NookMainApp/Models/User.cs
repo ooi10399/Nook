@@ -19,5 +19,7 @@ namespace NookMainApp.Models
         [DisplayName("Account Type")]
         [Required(ErrorMessage = "Account type cannot be empty")]
         public string UserType { get; set; }
+        [Display(Name = "Image URL")]
+        public string Image { get; set; }
     }
 }

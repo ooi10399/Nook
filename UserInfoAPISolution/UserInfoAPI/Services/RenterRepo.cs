@@ -53,6 +53,7 @@ namespace UserInfoAPI.Services
                 ren.NickName = item.NickName;
                 ren.DOB = item.DOB;
                 ren.About = item.About;
+                ren.Image = item.Image;
                 _context.Renters.Update(ren);
                 _context.SaveChanges();
             }

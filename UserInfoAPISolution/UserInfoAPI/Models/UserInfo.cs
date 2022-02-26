@@ -24,6 +24,7 @@ namespace UserInfoAPI.Models
         public DateTime DOB { get; set; }
         public string Gender { get; set; }
         public string? About { get; set; }
+        public string? Image { get; set; }
 
         bool value = false;
         public bool IsActive

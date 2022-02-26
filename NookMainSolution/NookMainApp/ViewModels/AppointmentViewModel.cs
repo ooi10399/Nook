@@ -1,4 +1,5 @@
-﻿using NookMainApp.Models;
+﻿using NookMainApp.Constant;
+using NookMainApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -18,9 +19,13 @@ namespace NookMainApp.ViewModels
         public DateTime StartDateTime { get; set; }
         [Display(Name = "End At")]
         public DateTime EndDateTime { get; set; }
+        [Display(Name = "Hourly Fees")]
         public double Fees { get; set; }
+        [Display(Name = "Total Fees")]
+        public double TotalFees { get; set; }
+        public string Remark { get; set; }
         public DateTime PlacementDate { get; set; }
         public DateTime UpdateDate { get; set; }
-        public string Status { get; set; }
+        public AppointmentStatus Status { get; set; }
     }
 }
