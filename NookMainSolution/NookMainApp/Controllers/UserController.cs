@@ -19,7 +19,7 @@ namespace NookMainApp.Controllers
             _loginService = loginService;
         }
 
-        IEnumerable<SelectListItem> GetType()
+        IEnumerable<SelectListItem> GetUserType()
         {
             List<SelectListItem> cats = new List<SelectListItem>();
             cats.Add(new SelectListItem { Text = "Rentee", Value = "Rentee" });
@@ -30,7 +30,7 @@ namespace NookMainApp.Controllers
         // GET: UserController/Create
         public ActionResult Register()
         {
-            ViewBag.Types = GetType();
+            ViewBag.Types = GetUserType();
             return View();
         }
 
@@ -39,7 +39,6 @@ namespace NookMainApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(User user)
         {
-
             try
             {
                 User usr = await _loginService.Register(user);
@@ -96,20 +95,19 @@ namespace NookMainApp.Controllers
             }
         }
 
-        // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Logout(int id)
         {
             return View();
         }
 
-        // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Logout()
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                HttpContext.Session.Clear();
+                return RedirectToAction("Login", "User");
             }
             catch
             {

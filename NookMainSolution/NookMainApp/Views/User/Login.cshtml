@@ -4,12 +4,11 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Welcome back!</h1>
-
-<h4>Login</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
+        <h1>Welcome back!</h1>
+        <h4>Login</h4>
+        <hr />
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -22,20 +21,19 @@
                 <input asp-for="Password" type="password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="UserType" class="control-label"></label>
-                <input asp-for="UserType" class="form-control" />
-                <span asp-validation-for="UserType" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
+                <input type="submit" value="Login" class="btn btn-info" />
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    Don't have an account? <a asp-action="Register">Register here</a>.
+        <div>
+            Don't have an account? <a asp-action="Register">Register here</a>.
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <img src="/images/john-arano-_qADvinJi20-unsplash.jpg" alt="login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+    </div>
 </div>
 
 @section Scripts {

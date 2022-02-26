@@ -34,7 +34,7 @@ namespace NookAppointmentAPI
 
             services.AddDbContext<AppointmentContext>(opts =>
             {
-                opts.UseSqlServer(Configuration["ConnectionStrings:conn"]);
+                opts.UseSqlServer(Configuration["ConnectionStrings:myCon"]);
             });
 
             services.AddSwaggerGen(c =>

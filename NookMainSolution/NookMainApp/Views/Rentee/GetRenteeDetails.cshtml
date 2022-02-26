@@ -1,49 +1,57 @@
 ﻿@model NookMainApp.Models.Rentee
 
 @{
-    ViewData["Title"] = "GetRenteeDetails";
+    ViewData["Title"] = "Friend Info";
 }
 
-<h1>GetRenteeDetails</h1>
-<h4>@ViewBag.LoginUser</h4>
-<div>
-    <h4>Rentee</h4>
-    <hr />
-    <dl class="row">
+@*<h4>@ViewBag.LoginUser</h4>*@
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NickName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NickName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DOB)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DOB)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.About)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.About)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Fee)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Fee)
-        </dd>
-    </dl>
+<h1>Some info about your friend..</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="@Html.DisplayFor(model => model.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
+    </div>
+
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.NickName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.NickName)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.DOB)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.DOB)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.About)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.About)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Fee)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Fee)
+            </dd>
+        </dl>
+
+            <div>
+                <a href="@Url.Action("CreateAppointment", "Appointment", new { UserId = Model.UserId })" class="btn btn-info">Book</a>
+                <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+            </div>
+    </div>
 </div>
-<div>
-    @Html.ActionLink("Make Appointment", "CreateAppointment", "Appointment", new { UserId = Model.UserId })
-    <a asp-action="Index">Back to List</a>
-</div>
+

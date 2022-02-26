@@ -131,6 +131,7 @@ namespace NookMainApp.Controllers
             {
                 string token = HttpContext.Session.GetString("token");
                 _repo.GetToken(token);
+                id = HttpContext.Session.GetString("username");
 
                 await _repo.Delete(id);
                 return RedirectToAction("myDash", "User");
