@@ -22,7 +22,7 @@
                     @Html.DisplayFor(modelItem => item.DOB)
                 </p>
 
-                <a href="@Url.Action("Details", "GetRenteeDetails", new { id = item.UserId })" class="btn btn-warning mt-auto">Book</a>
+                <a href="@Url.Action("GetRenteeDetails", "Rentee", new { id = item.UserId })" class="btn btn-warning mt-auto">Book</a>
             </div>
         </div>
     }

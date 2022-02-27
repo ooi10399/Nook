@@ -13,10 +13,14 @@ namespace NookMainApp.Controllers
     public class UserController : Controller
     {
         private readonly LoginService _loginService;
+        private readonly IRepo<string, Rentee> _rrepo;
+        private readonly IRepo<string, Renter> _r_repo;
 
-        public UserController(LoginService loginService)
+        public UserController(LoginService loginService, IRepo<string,Rentee> rrepo, IRepo<string, Renter> r_repo)
         {
             _loginService = loginService;
+            _rrepo = rrepo;
+            _r_repo = r_repo;
         }
 
         IEnumerable<SelectListItem> GetUserType()
@@ -80,10 +84,23 @@ namespace NookMainApp.Controllers
                 {
                     HttpContext.Session.SetString("token", usr.Token);
                     HttpContext.Session.SetString("username", usr.Username);
+
+                    var id = HttpContext.Session.GetString("username");
                     if (usr.UserType == "Rentee")
-                        return RedirectToAction("Details", "Rentee");
+                    {
+                        var ren = await _rrepo.Get(id);
+                        if (ren == null)
+                            return RedirectToAction("Create", "Rentee");
+                        return RedirectToAction("Index", "Home");
+                    }
+                        
                     if (usr.UserType == "Renter")
-                        return RedirectToAction("Details", "Renter");
+                    {
+                        var ren = await _r_repo.Get(id);
+                        if (ren == null)
+                            return RedirectToAction("Create", "Renter");
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 var errorMessage = String.Format("Invalid username or password");
                 ModelState.AddModelError(string.Empty, errorMessage);

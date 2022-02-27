@@ -8,7 +8,7 @@ namespace NookMainApp.Constant
     public enum AppointmentStatus
     {
             Pending,
-            Comfirm,
+            Confirm,
             Cancel,
             Completed
     }

@@ -64,11 +64,16 @@ namespace NookAppointmentAPI.Controllers
         public ActionResult<Appointment> Delete(int id)
         {
             var appointment = _repo.Delete(id);
+            //if (appointment != null)
+            //{
+            //    return NoContent();
+            //}
+            //return NotFound(appointment);
             if (appointment != null)
             {
-                return NoContent();
+                return Ok(appointment);
             }
-            return NotFound(appointment);
+            return NotFound();
         }
         [HttpPost]
         public ActionResult<Appointment> Post(Appointment appointment)

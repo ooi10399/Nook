@@ -12,6 +12,7 @@ namespace GatewayAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
 
     public class AppointmentController : ControllerBase
     {

@@ -37,48 +37,60 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RenteeUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.AppointmentId)
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
+                    @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
                 </td>
+            }
+            @if (item.Status == NookMainApp.Constant.AppointmentStatus.Confirm)
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.RenteeUserName)
+                    @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
+                    @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
                 </td>
+            }
+            @if (item.Status == NookMainApp.Constant.AppointmentStatus.Completed || item.Status == NookMainApp.Constant.AppointmentStatus.Cancel)
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.StartDateTime)
+                    @Html.ActionLink("Details", "Details", new { id = item.AppointmentId })
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndDateTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
-                {
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
-                        @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
-                    </td>
-                }
-                @if (item.Status == NookMainApp.Constant.AppointmentStatus.Comfirm)
-                {
-                    <td>
-                        @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
-                        @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
-                    </td>
-                }
-                @if (item.Status == NookMainApp.Constant.AppointmentStatus.Completed || item.Status == NookMainApp.Constant.AppointmentStatus.Cancel)
-                {
-                    <td>
-                        @Html.ActionLink("Details", "Details", new { id = item.AppointmentId })
-                    </td>
-                }
+            }
 
 
-            </tr>
-        }
+        </tr>
+    }
+
+}
+else
+{
+        <tr>
+            <td colspan="8">
+                Sorry, there is no appointment at the moment.
+            </td>
+        </tr>
+}
     </tbody>
 </table>

@@ -12,7 +12,7 @@ namespace GatewayAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class RenterController : ControllerBase
     {
         private readonly IRepo<string, RenterDTO> _repo;

@@ -26,6 +26,7 @@ namespace NookMainApp.ViewModels
         public string Remark { get; set; }
         public DateTime PlacementDate { get; set; }
         public DateTime UpdateDate { get; set; }
+        [Required(ErrorMessage = "select one item")]
         public AppointmentStatus Status { get; set; }
     }
 }

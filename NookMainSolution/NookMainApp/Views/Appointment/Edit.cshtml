@@ -55,6 +55,11 @@
             <span asp-validation-for="PlacementDate" class="text-danger"></span>
         </div>
         <div class="form-group">
+            <label asp-for="Remark" class="control-label"></label>
+            <textarea asp-for="Remark" class="form-control"></textarea>
+            <span asp-validation-for="Remark" class="text-danger"></span>
+        </div>
+        <div class="form-group">
             <label asp-for="Status" class="control-label"></label>
             <input asp-for="Status" class="form-control" readonly />
             <span asp-validation-for="Status" class="text-danger"></span>
@@ -69,6 +74,7 @@
 <div>
     <a asp-action="AllAppointment">Back to List</a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

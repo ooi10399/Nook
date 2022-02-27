@@ -14,6 +14,9 @@
     {
         <div id="viewbagMessage">@ViewBag.Message</div>
     }
+    <div>
+        <img src=@Url.Content(Model.Rentee.Image) alt="No Image" width="100"/>
+    </div>
 <dl class="row">
     <dt class="col-sm-2">
     </dt>
@@ -65,7 +68,7 @@
 </dl>
 
     <form asp-action="Delete">
-        <input type="submit" value="Cancel this Appointment" class="btn btn-danger" /> |
+        <input type="submit" value="Cancel this Appointment" class="btn btn-danger" />    |
         <a asp-action="AllAppointment">Back to List</a>
     </form>
 </div>

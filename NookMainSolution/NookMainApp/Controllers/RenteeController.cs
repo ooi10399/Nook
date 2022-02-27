@@ -49,6 +49,8 @@ namespace NookMainApp.Controllers
 
             id = HttpContext.Session.GetString("username");
             var ren = await _repo.Get(id);
+            //if(ren == null)
+            //    return RedirectToAction("Create", "Rentee");
             return View(ren);
         }
 

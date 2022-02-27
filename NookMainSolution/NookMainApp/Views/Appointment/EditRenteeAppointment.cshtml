@@ -1,0 +1,87 @@
+﻿@model NookMainApp.ViewModels.AppointmentViewModel
+
+@{
+    ViewData["Title"] = "EditRenteeAppointment";
+}
+
+<h1>EditRenteeAppointment</h1>
+
+<h4>AppointmentViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @if (Model != null)
+        {
+            <img src="@Url.Content(Model.Renter.Image)" alt="No Image" style="width:100%" />
+        }
+
+        @if (ViewBag.Message != "")
+        {
+            <span class="text-danger" id="viewbagMessage">@ViewBag.Message</span>
+        }
+
+        <form asp-action="EditRenteeAppointment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="AppointmentId" class="form-control" hidden readonly />
+            </div>
+            @*<div class="form-group">
+                <label asp-for="RenteeUserName" class="control-label"></label>
+                <input asp-for="RenteeUserName" class="form-control" />
+                <span asp-validation-for="RenteeUserName" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Renter.NickName" class="control-label"></label>
+                <input asp-for="Renter.NickName" class="form-control" readonly />
+                <span asp-validation-for="Renter.NickName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDateTime" class="control-label"></label>
+                <input asp-for="StartDateTime" class="form-control" readonly />
+                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDateTime" class="control-label"></label>
+                <input asp-for="EndDateTime" class="form-control" readonly />
+                <span asp-validation-for="EndDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalFees" class="control-label"></label>
+                <input asp-for="TotalFees" class="form-control" readonly />
+                <span asp-validation-for="TotalFees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <input asp-for="Remark" class="form-control" />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlacementDate" class="control-label"></label>
+                <input asp-for="PlacementDate" class="form-control" readonly />
+                <span asp-validation-for="PlacementDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <div class="form-control">
+                    @Html.RadioButtonFor(x => x.Status, NookMainApp.Constant.AppointmentStatus.Pending.ToString())
+                    @Html.Label(NookMainApp.Constant.AppointmentStatus.Pending.ToString())
+                    @Html.RadioButtonFor(x => x.Status, NookMainApp.Constant.AppointmentStatus.Confirm.ToString())
+                    @Html.Label(NookMainApp.Constant.AppointmentStatus.Confirm.ToString())
+                </div>
+               
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
