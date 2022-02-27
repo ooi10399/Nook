@@ -5685,23 +5685,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Ooi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\26022022_withFE\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Ooi\\Desktop\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
       "projectName": "GatewayAPI",
-      "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\26022022_withFE\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
-      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\26022022_withFE\\GatewayAPISolution\\GatewayAPI\\obj\\",
+      "projectPath": "C:\\Users\\Ooi\\Desktop\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+      "packagesPath": "C:\\Users\\Ooi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ooi\\Desktop\\Nook\\GatewayAPISolution\\GatewayAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ooi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5772,7 +5768,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -10,7 +10,7 @@ using UserInfoAPI.Models;
 namespace UserInfoAPI.Migrations
 {
     [DbContext(typeof(UserInfoDbContext))]
-    [Migration("20220226092647_Init")]
+    [Migration("20220227064340_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

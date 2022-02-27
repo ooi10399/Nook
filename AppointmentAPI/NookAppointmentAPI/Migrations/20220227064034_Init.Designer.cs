@@ -10,7 +10,7 @@ using NookAppointmentAPI.Models;
 namespace NookAppointmentAPI.Migrations
 {
     [DbContext(typeof(AppointmentContext))]
-    [Migration("20220226093045_Init")]
+    [Migration("20220227064034_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
