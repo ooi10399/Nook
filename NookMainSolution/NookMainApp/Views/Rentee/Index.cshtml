@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Your friends at Nook..</h1>
+<h2>Your friends at Nook..</h2>
+<hr />
 
 <div class="row">
     @foreach (var item in Model)
@@ -20,7 +21,7 @@
                     @Html.DisplayFor(modelItem => item.DOB)
                 </p>
 
-                <a asp-action="Index" class="btn btn-info mt-auto">View details</a>
+                <a asp-action="Details" class="btn btn-info mt-auto">View details</a>
             </div>
         </div>
     }

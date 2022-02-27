@@ -1,96 +1,120 @@
 ﻿@model IEnumerable<NookMainApp.Models.Appointment>
 
 @{
-    ViewData["Title"] = "AllAppointment";
+    ViewData["Title"] = "My Appointments";
 }
 
-<h1>AllAppointment</h1>
+<h2>My Appointments</h2>
 
-<p>
-    @Html.ActionLink("More Rentees", "GetAllRentees", "Rentee")
-</p>
+<a href="@Url.Action("GetAllRentees", "Rentee")" class="btn btn-outline-info">Back</a>
+
+<hr />
 
 @if (ViewBag.Message != null)
 {
     <div ip="viewbagMessage">@ViewBag.Message</div>
 }
 
-<table class="table">
+<table
+       id="table"
+       data-toggle="table"
+       data-search="true">
     <thead>
         <tr>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.AppointmentId)
             </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.RenteeUserName)
             </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.StartDateTime)
             </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.EndDateTime)
             </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th></th>
         </tr>
     </thead>
+
     <tbody>
-@if (Model != null)
-{
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AppointmentId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RenteeUserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
             {
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
-                    @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
-                </td>
-            }
-            @if (item.Status == NookMainApp.Constant.AppointmentStatus.Confirm)
-            {
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
-                    @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
-                </td>
-            }
-            @if (item.Status == NookMainApp.Constant.AppointmentStatus.Completed || item.Status == NookMainApp.Constant.AppointmentStatus.Cancel)
-            {
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.AppointmentId })
-                </td>
-            }
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AppointmentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RenteeUserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDateTime)
+                    </td>
+                    <td>
+                        @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
+                        {
+                            <p class="text-warning">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </p>
+                        }
+                        @if (item.Status == NookMainApp.Constant.AppointmentStatus.Completed)
+                        {
+                            <p class="text-secondary">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </p>
+                        }
+                        @if (item.Status == NookMainApp.Constant.AppointmentStatus.Confirm)
+                        {
+                            <p class="text-success">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </p>
+                        }
+                    </td>
+                    @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
+                            @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
+                        </td>
+                    }
+                    @if (item.Status == NookMainApp.Constant.AppointmentStatus.Confirm)
+                    {
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
+                            @Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })
+                        </td>
+                    }
+                    @if (item.Status == NookMainApp.Constant.AppointmentStatus.Completed || item.Status == NookMainApp.Constant.AppointmentStatus.Cancel)
+                    {
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.AppointmentId })
+                        </td>
+                    }
 
 
-        </tr>
-    }
-
-}
-else
-{
-        <tr>
-            <td colspan="8">
-                Sorry, there is no appointment at the moment.
-            </td>
-        </tr>
-}
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8">
+                    Sorry, there is no appointment at the moment.
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
+
+

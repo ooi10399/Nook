@@ -47,6 +47,7 @@ namespace NookMainApp.Controllers
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
+            ViewBag.username = HttpContext.Session.GetString("username");
             id = HttpContext.Session.GetString("username");
             var ren = await _repo.Get(id);
             //if(ren == null)
@@ -105,8 +106,14 @@ namespace NookMainApp.Controllers
                 _repo.GetToken(token);
 
                 ViewBag.Genders = GetGender();
-                await _repo.Update(ren);
-                return RedirectToAction("Details");
+
+                var app = await _repo.Update(ren);
+                if (app != null)
+                {
+                    ViewBag.Message = "Details updated";
+                    return RedirectToAction("Details");
+                }
+                return View();
             }
             catch
             {

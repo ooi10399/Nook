@@ -1,28 +1,27 @@
 ﻿@model NookMainApp.Models.Renter
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Update Info";
 }
 
-<h1>Edit</h1>
-
-<h4>Renter</h4>
+<h2>Update your info!</h2>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             @*<div class="form-group">
-            <label asp-for="UserId" class="control-label"></label>
-            <input asp-for="UserId" class="form-control" />
-            <span asp-validation-for="UserId" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>*@
+                    <label asp-for="UserId" class="control-label"></label>
+                    <input asp-for="UserId" class="form-control" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>
                 <input asp-for="FullName" class="form-control" />
@@ -54,14 +53,14 @@
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             @*<div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
-            </label>
-        </div>*@
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-info" />
-            <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
-        </div>
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                    </label>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-info" />
+                <a asp-action="Details" class="btn btn-outline-info">Back</a>
+            </div>
         </form>
     </div>
 </div>

@@ -1,20 +1,22 @@
 ﻿@model NookMainApp.ViewModels.AppointmentViewModel
 
 @{
-    ViewData["Title"] = "EditRenteeAppointment";
+    ViewData["Title"] = "Edit Appointment";
 }
 
-<h1>EditRenteeAppointment</h1>
-
-<h4>AppointmentViewModel</h4>
+<h2>Edit your appointment?</h2>
+<a asp-action="AllRenteeAppointment" class="btn btn-outline-info">Back</a>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        @if (Model != null)
-        {
-            <img src="@Url.Content(Model.Renter.Image)" alt="No Image" style="width:100%" />
-        }
 
+<div class="row">
+    @if (Model != null)
+    {
+        <div class="col-md-4">
+            <img src="@Url.Content(Model.Renter.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
+        </div>
+    }
+
+    <div class="col-md-8">
         @if (ViewBag.Message != "")
         {
             <span class="text-danger" id="viewbagMessage">@ViewBag.Message</span>
@@ -26,10 +28,10 @@
                 <input asp-for="AppointmentId" class="form-control" hidden readonly />
             </div>
             @*<div class="form-group">
-                <label asp-for="RenteeUserName" class="control-label"></label>
-                <input asp-for="RenteeUserName" class="form-control" />
-                <span asp-validation-for="RenteeUserName" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="RenteeUserName" class="control-label"></label>
+                    <input asp-for="RenteeUserName" class="form-control" />
+                    <span asp-validation-for="RenteeUserName" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <label asp-for="Renter.NickName" class="control-label"></label>
                 <input asp-for="Renter.NickName" class="form-control" readonly />
@@ -62,24 +64,20 @@
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <div class="form-control">
+                <div>
                     @Html.RadioButtonFor(x => x.Status, NookMainApp.Constant.AppointmentStatus.Pending.ToString())
                     @Html.Label(NookMainApp.Constant.AppointmentStatus.Pending.ToString())
                     @Html.RadioButtonFor(x => x.Status, NookMainApp.Constant.AppointmentStatus.Confirm.ToString())
                     @Html.Label(NookMainApp.Constant.AppointmentStatus.Confirm.ToString())
                 </div>
-               
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-info" />
+                <a asp-action="AllRenteeAppointment" class="btn btn-outline-info">Back to list</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

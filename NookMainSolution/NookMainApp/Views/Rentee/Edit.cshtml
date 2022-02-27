@@ -1,13 +1,12 @@
 ﻿@model NookMainApp.Models.Rentee
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Update Info";
 }
 
-<h1>Edit</h1>
-
-<h4>Rentee</h4>
+<h2>Update your info!</h2>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -65,7 +64,7 @@
         </div>*@
         <div class="form-group">
             <input type="submit" value="Save" class="btn btn-info" />
-            <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+            <a asp-action="Details" class="btn btn-outline-info">Back</a>
         </div>
         </form>
     </div>

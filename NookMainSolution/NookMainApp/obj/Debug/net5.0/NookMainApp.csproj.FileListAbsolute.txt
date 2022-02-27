@@ -644,6 +644,7 @@ C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\26022022_withFE\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\AllRenteeAppointment.cshtml.g.cs
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\26022022_withFE\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\RenteeAppointmentDetails.cshtml.g.cs
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\26022022_withFE\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\DeleteRenteeAppointment.cshtml.g.cs
+<<<<<<< HEAD
 C:\Users\Ooi\Desktop\Nook\NookMainSolution\NookMainApp\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Ooi\Desktop\Nook\NookMainSolution\NookMainApp\bin\Debug\net5.0\appsettings.json
 C:\Users\Ooi\Desktop\Nook\NookMainSolution\NookMainApp\bin\Debug\net5.0\NookMainApp.exe
@@ -781,3 +782,9 @@ C:\Users\Ooi\Desktop\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMain
 C:\Users\Ooi\Desktop\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\ref\NookMainApp.dll
 C:\Users\Ooi\Desktop\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMainApp.pdb
 C:\Users\Ooi\Desktop\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMainApp.genruntimeconfig.cache
+=======
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\AllRenteeAppointment.cshtml.g.cs
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\DeleteRenteeAppointment.cshtml.g.cs
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\EditRenteeAppointment.cshtml.g.cs
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\RenteeAppointmentDetails.cshtml.g.cs
+>>>>>>> 0b197130debfe7af23e58bfea3c024f2cddad58e

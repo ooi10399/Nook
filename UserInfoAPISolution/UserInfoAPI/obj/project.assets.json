@@ -5978,11 +5978,18 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Ooi\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\johan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+>>>>>>> 0b197130debfe7af23e58bfea3c024f2cddad58e
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Ooi\\Desktop\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
       "projectName": "UserInfoAPI",
       "projectPath": "C:\\Users\\Ooi\\Desktop\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
@@ -5992,6 +5999,23 @@
       "configFilePaths": [
         "C:\\Users\\Ooi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+      "projectUniqueName": "C:\\Users\\johan\\source\\repos\\NookTemp\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
+      "projectName": "UserInfoAPI",
+      "projectPath": "C:\\Users\\johan\\source\\repos\\NookTemp\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
+      "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\johan\\source\\repos\\NookTemp\\UserInfoAPISolution\\UserInfoAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> 0b197130debfe7af23e58bfea3c024f2cddad58e
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6049,7 +6073,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+>>>>>>> 0b197130debfe7af23e58bfea3c024f2cddad58e
       }
     }
   }
