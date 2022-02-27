@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
 </head>
+<style>
+    .footer{
+        margin-top:100px;
+    }
+</style>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm sticky-top navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">The Nook</a>
+                <a class="navbar-brand text-info h1" asp-area="" asp-controller="Home" asp-action="Index">The Nook</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,10 +34,26 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="Index">Friends</a>
+
                         </li>
                     </ul>
                 </div>
+                <form class="form-inline ">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span class="navbar-text text-info " style="width: 100px;">
+                            @*@if (viewbag.username != null)
+                                {<div>@viewbag.username</div>}*@
+                        </span>
+                        <button class="btn btn-info text-light my-2 my-sm-0" type="submit" href="#">Logout</button>
+                    }
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        <button class="btn btn-info text-light my-2 my-sm-0" type="submit" asp-area="" asp-controller="User" asp-action="Login">Login</button>
+                    }
+                </form>
             </div>
+
         </nav>
     </header>
     <div class="container">
@@ -39,8 +61,7 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted">
         <div class="container">
             &copy; 2022 - The Nook App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -52,3 +73,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
