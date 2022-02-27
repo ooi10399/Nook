@@ -1,23 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
-        "projectName": "NookAppointmentAPI",
-        "projectPath": "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
-        "packagesPath": "C:\\Users\\Ooi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ooi\\Desktop\\Nook\\AppointmentAPI\\NookAppointmentAPI\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Ooi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
     "C:\\Users\\johan\\source\\repos\\NookTemp\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj": {}
   },
   "projects": {
@@ -39,7 +22,6 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
->>>>>>> 0b197130debfe7af23e58bfea3c024f2cddad58e
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -97,11 +79,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
->>>>>>> 0b197130debfe7af23e58bfea3c024f2cddad58e
         }
       }
     }
