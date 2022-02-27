@@ -123,12 +123,12 @@ namespace NookMainApp.Controllers
                     return RedirectToAction("AllAppointment");
                 }
 
-                ViewBag.Message = "Ops, please try again.";
+                ViewBag.Message = "Oops, please try again.";
                 return View();
             }
             catch (Exception ex)
             {
-                ViewBag.Message = "Ops, something is wrong. Please try again later.";
+                ViewBag.Message = "Oops, something is wrong. Please try again later.";
                 return View();
             }
         }
@@ -246,12 +246,12 @@ namespace NookMainApp.Controllers
                     }
                 }
                
-                ViewBag.Message = "Ops, No such appointment.";
+                ViewBag.Message = "Oops, No such appointment.";
                 return RedirectToAction("AllAppointment");
             }
             catch (Exception ex)
             {
-                ViewBag.Message = "Ops, please try again later.";
+                ViewBag.Message = "Oops, please try again later.";
                 return View();
             }
         }
@@ -426,12 +426,12 @@ namespace NookMainApp.Controllers
                     }
                 }
 
-                ViewBag.Message = "Ops, No such appointment.";
+                ViewBag.Message = "Oops, No such appointment.";
                 return RedirectToAction("AllRenteeAppointment");
             }
             catch (Exception ex)
             {
-                ViewBag.Message = "Ops, please try again later.";
+                ViewBag.Message = "Oops, please try again later.";
                 return View();
             }
         }

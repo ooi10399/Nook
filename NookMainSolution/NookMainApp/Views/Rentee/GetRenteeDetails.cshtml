@@ -6,7 +6,8 @@
 
 @*<h4>@ViewBag.LoginUser</h4>*@
 
-<h1>Some info about your friend..</h1>
+<h2>Some info about your friend..</h2>
+
 <hr />
 
 <div class="row">
@@ -49,8 +50,8 @@
         </dl>
 
             <div>
-                <a href="@Url.Action("CreateAppointment", "Appointment", new { UserId = Model.UserId })" class="btn btn-info">Book</a>
-                <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+                <a href="@Url.Action("CreateAppointment", "Appointment", new { UserId = Model.UserId })" class="btn btn-info">Make appointment</a>
+                <a asp-action="GetAllRentees" class="btn btn-outline-info">Back to List</a>
             </div>
     </div>
 </div>

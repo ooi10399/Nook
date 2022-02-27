@@ -1,70 +1,69 @@
 ﻿@model NookMainApp.ViewModels.AppointmentViewModel
 
 @{
-    ViewData["Title"] = "CreateAppointment";
+    ViewData["Title"] = "Create Appointment";
 }
 
-<h1>Create Appointment</h1>
+<h2>Making a new appointment..</h2>
 
-<h4>AppointmentViewModel</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
-      
+        <img asp-for="Rentee.Image" src="@Url.Content(Model.Rentee.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
+    </div>
 
-    <form asp-action="CreateAppointment">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <image asp-for="Rentee.Image" class="form-control" src="@Url.Content(Model.Rentee.Image)" alt="No Image" width="100" length="150"/>
-            @if (ViewBag.Message != "")
-            {
-                <span class="text-danger" id="viewbagMessage">@ViewBag.Message</span>
-            }
-        </div>
-        <div class="form-group">
-            <input asp-for="RenteeUserName" class="form-control" value="@Model.Rentee.UserId" hidden />
-            <span class="text-danger" id="alertMessage"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Rentee.NickName" class="control-label"></label>
-            <input asp-for="Rentee.NickName" class="form-control" value="@Model.Rentee.NickName" readonly />
-            <span asp-validation-for="Rentee.NickName" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="StartDateTime" class="control-label"></label>
-            <input asp-for="StartDateTime" onchange="checkStartDate()" class="form-control" />
-            <span asp-validation-for="StartDateTime" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="EndDateTime" class="control-label"></label>
-            <input asp-for="EndDateTime" onchange="checkEndDate()" class="form-control" />
-            <span asp-validation-for="EndDateTime" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Fees" class="control-label"></label>
-            <input asp-for="Fees" class="form-control" value="@Model.Fees" readonly />
-            <span asp-validation-for="Fees" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="TotalFees" class="control-label"></label>
-            <input asp-for="TotalFees" id="TotalFees" class="form-control" readonly />
-            <span asp-validation-for="TotalFees" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Remark" class="control-label"></label>
-            <textarea asp-for="Remark" class="form-control"></textarea>
-            <span asp-validation-for="Remark" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Make Appointment" class="btn btn-info" />
-        </div>
-    </form>
+    <div class="col-md-8">
+        <form asp-action="CreateAppointment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @if (ViewBag.Message != "")
+                {
+                    <span class="text-danger" id="viewbagMessage">@ViewBag.Message</span>
+                }
+            </div>
+            <div class="form-group">
+                <input asp-for="RenteeUserName" class="form-control" value="@Model.Rentee.UserId" hidden />
+                <span class="text-danger" id="alertMessage"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rentee.NickName" class="control-label"></label>
+                <input asp-for="Rentee.NickName" class="form-control" value="@Model.Rentee.NickName" readonly />
+                <span asp-validation-for="Rentee.NickName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDateTime" class="control-label"></label>
+                <input asp-for="StartDateTime" onchange="checkStartDate()" class="form-control" />
+                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDateTime" class="control-label"></label>
+                <input asp-for="EndDateTime" onchange="checkEndDate()" class="form-control" />
+                <span asp-validation-for="EndDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fees" class="control-label"></label>
+                <input asp-for="Fees" class="form-control" value="@Model.Fees" readonly />
+                <span asp-validation-for="Fees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalFees" class="control-label"></label>
+                <input asp-for="TotalFees" id="TotalFees" class="form-control" readonly />
+                <span asp-validation-for="TotalFees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <textarea asp-for="Remark" class="form-control"></textarea>
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Make appointment" class="btn btn-info" />
+                <a href="@Url.Action("getallrentees","rentee")" class="btn btn-outline-info">Back to List</a>
+            </div>
+        </form>
     </div>
 </div>
 
-<div>
-    <a href="@Url.Action("getallrentees","rentee")" class="btn btn-outline-info">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -1,31 +1,32 @@
 ﻿@model IEnumerable<NookMainApp.Models.Appointment>
 
 @{
-    ViewData["Title"] = "AllRenteeAppointment";
+    ViewData["Title"] = "My Appointments";
 }
 
-<h1>AllRenteeAppointment</h1>
+<h2>My Appointments</h2>
 
+<hr />
 
-<table class="table">
+<table
+       id="table"
+       data-toggle="table"
+       data-search="true">
     <thead>
         <tr>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.RenterUserName)
             </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.StartDateTime)
             </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.EndDateTime)
             </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.Remark)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PlacementDate)
-            </th>
-            <th>
+            <th data-sortable="true">
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th></th>
@@ -50,7 +51,24 @@
                         @Html.DisplayFor(modelItem => item.Remark)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Status)
+                        @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
+                        {
+                            <p class="text-warning">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </p>
+                        }
+                        @if (item.Status == NookMainApp.Constant.AppointmentStatus.Completed)
+                        {
+                            <p class="text-secondary">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </p>
+                        }
+                        @if (item.Status == NookMainApp.Constant.AppointmentStatus.Confirm)
+                        {
+                            <p class="text-success">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </p>
+                        }
                     </td>
                     @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
                     {

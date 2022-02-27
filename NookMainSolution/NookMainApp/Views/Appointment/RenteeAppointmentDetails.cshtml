@@ -1,63 +1,69 @@
 ﻿@model NookMainApp.ViewModels.AppointmentViewModel
 
 @{
-    ViewData["Title"] = "RenteeAppointmentDetails";
+    ViewData["Title"] = "Appointment Details";
 }
 
-<h1>RenteeAppointmentDetails</h1>
+<h2>Your appointment details..</h2>
+<a asp-action="AllRenteeAppointment" class="btn btn-outline-info">Back</a>
+<hr />
 
-<div>
-    <h4>AppointmentViewModel</h4>
-    <hr />
-    @if (Model.Renter != null)
+<div class="row">
+    @if (Model != null)
     {
-        <img src="@Url.Content(Model.Renter.Image)" alt="No Image" style="width:100%" />
+        <div class="col-md-4">
+            <img src="@Url.Content(Model.Renter.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
+        </div>
     }
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Renter.NickName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Renter.NickName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDateTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.StartDateTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EndDateTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EndDateTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalFees)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TotalFees)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Remark)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Remark)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PlacementDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PlacementDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="AllRenteeAppointment">Back to Appointments</a>
+
+
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Renter.NickName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Renter.NickName)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.StartDateTime)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.StartDateTime)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.EndDateTime)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.EndDateTime)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.TotalFees)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.TotalFees)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.PlacementDate)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.PlacementDate)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="AllRenteeAppointment" class="btn btn-outline-info">Back to list</a>
+    </div>
 </div>

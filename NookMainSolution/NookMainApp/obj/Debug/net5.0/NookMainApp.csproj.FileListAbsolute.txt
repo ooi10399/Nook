@@ -644,3 +644,7 @@ C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\26022022_withFE\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\AllRenteeAppointment.cshtml.g.cs
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\26022022_withFE\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\RenteeAppointmentDetails.cshtml.g.cs
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\team2Assignment\NOOK to GitHub\26022022_withFE\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\DeleteRenteeAppointment.cshtml.g.cs
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\AllRenteeAppointment.cshtml.g.cs
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\DeleteRenteeAppointment.cshtml.g.cs
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\EditRenteeAppointment.cshtml.g.cs
+C:\Users\johan\source\repos\NookTemp\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\RenteeAppointmentDetails.cshtml.g.cs

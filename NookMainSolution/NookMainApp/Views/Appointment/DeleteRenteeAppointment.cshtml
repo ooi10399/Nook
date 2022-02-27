@@ -1,78 +1,80 @@
 ﻿@model NookMainApp.ViewModels.AppointmentViewModel
 
 @{
-    ViewData["Title"] = "DeleteRenteeAppointment";
+    ViewData["Title"] = "Cancel Appointment";
 }
 
-<h1>DeleteRenteeAppointment</h1>
+<h2>Are you sure you want to cancel.. :(</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>AppointmentViewModel</h4>
-    <hr />
-    @if (ViewBag.Massage != null)
-    {
-        <div id="viewbagMessage">@ViewBag.Message</div>
-    }
+<hr />
+
+@if (ViewBag.Massage != null)
+{
+    <div id="viewbagMessage">@ViewBag.Message</div>
+}
+
+<div class="row">
     @if (Model != null)
     {
-        <div>
-            <img src=@Url.Content(Model.Renter.Image) alt="No Image" width="100" />
+        <div class="col-md-4">
+            <img src="@Url.Content(Model.Rentee.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
         </div>
     }
 
-    <dl class="row">
-        <dt class="col-sm-2">
-        </dt>
-        <dd class="col-sm-10">
-            @Html.HiddenFor(model => model.AppointmentId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Renter.NickName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Renter.NickName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDateTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.StartDateTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EndDateTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EndDateTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Fees)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Fees)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalFees)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TotalFees)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Remark)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Remark)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-4">
+            </dt>
+            <dd class="col-sm-8">
+                @Html.HiddenFor(model => model.AppointmentId)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Rentee.NickName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Rentee.NickName)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.StartDateTime)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.StartDateTime)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.EndDateTime)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.EndDateTime)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Fees)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Fees)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.TotalFees)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.TotalFees)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+        </dl>
 
-    <form asp-action="DeleteRenteeAppointment">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+        <form asp-action="Delete">
+            <input type="submit" value="Cancel appointment" class="btn btn-danger" />
+            <a asp-action="AllAppointment" class="btn btn-outline-info">Back to List</a>
+        </form>
+    </div>
 </div>
