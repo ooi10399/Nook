@@ -27,7 +27,7 @@ namespace NookMainApp.Models
         //[Required(ErrorMessage = "Date of birth cannot be empty")]
         [DisplayName("Birthday")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         //[DateAttribute(ErrorMessage = "You have to be at least 18 years old")]
         public DateTime DOB { get; set; }
         //[Required(ErrorMessage = "Gender cannot be empty")]

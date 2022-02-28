@@ -72,6 +72,13 @@ namespace NookMainApp.Controllers
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
+            if(HttpContext.Session.GetString("username") != null)
+            {
+                var ren = await _r_repo.Get(HttpContext.Session.GetString("username"));
+                if (ren == null)
+                    return RedirectToAction("Create", "Renter");
+            }
+
             var rentee = await _rrepo.Get(UserId);
             var appointment = new AppointmentViewModel {Rentee = rentee, Fees = rentee.Fee};
 
