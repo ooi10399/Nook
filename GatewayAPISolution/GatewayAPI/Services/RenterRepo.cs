@@ -92,7 +92,7 @@ namespace GatewayAPI.Services
             using (_httpClient)
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
-                using (var response = await _httpClient.PutAsync("http://localhost:24324/api/Renter?id=" + item.UserId, content))
+                using (var response = await _httpClient.PutAsync("http://localhost:24324/api/Renter/" + item.UserId, content))
                 {
                     if (response.IsSuccessStatusCode)
                     {

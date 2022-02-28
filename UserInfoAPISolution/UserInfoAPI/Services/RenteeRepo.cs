@@ -40,6 +40,7 @@ namespace UserInfoAPI.Services
             {
                 _context.Rentees.Remove(ren);
                 _context.SaveChanges();
+                return ren;
             }
             return null;
         }
@@ -58,6 +59,7 @@ namespace UserInfoAPI.Services
                 ren.Image = item.Image;
                 _context.Rentees.Update(ren);
                 _context.SaveChanges();
+                return ren;
             }
             return null;
         }
