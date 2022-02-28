@@ -8,18 +8,16 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+    <link href="carousel.css" rel="stylesheet">
 </head>
-<style>
-    .footer{
-        margin-top:100px;
-    }
-</style>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-sm sticky-top navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand text-info h1" asp-area="" asp-controller="Home" asp-action="Index">The Nook</a>
+                <a class="navbar-brand text-info" asp-area="" asp-controller="Home" asp-action="Index">The Nook</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -53,7 +51,6 @@
                     }
                 </form>
             </div>
-
         </nav>
     </header>
     <div class="container">
@@ -61,7 +58,7 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="footer text-muted">
+    <footer class=" border-top footer text-muted">
         <div class="container">
             &copy; 2022 - The Nook App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
