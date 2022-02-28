@@ -922,3 +922,4 @@ C:\Users\johan\GitLocalRepos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\
 C:\Users\johan\GitLocalRepos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\ref\NookMainApp.dll
 C:\Users\johan\GitLocalRepos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMainApp.pdb
 C:\Users\johan\GitLocalRepos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMainApp.genruntimeconfig.cache
+C:\Users\johan\GitLocalRepos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs

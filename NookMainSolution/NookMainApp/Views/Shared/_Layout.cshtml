@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,15 +40,14 @@
                     </ul>
                 </div>
                 <form class="form-inline ">
-                    @if (User.Identity.IsAuthenticated)
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("username") != null)
                     {
-                        <span class="navbar-text text-info " style="width: 100px;">
-                            @*@if (viewbag.username != null)
-                                {<div>@viewbag.username</div>}*@
-                        </span>
-                        <button class="btn btn-info text-light my-2 my-sm-0" type="submit" href="#">Logout</button>
+                        @*<span class="navbar-text text-info ">
+                            @ViewData["Username"]
+                        </span>*@
+                        <button class="btn btn-outline-info text-dark my-2 my-sm-0" type="submit" asp-area="" asp-controller="User" asp-action="Logout">Logout</button>
                     }
-                    @if (User.Identity.IsAuthenticated == false)
+                    else
                     {
                         <button class="btn btn-info text-light my-2 my-sm-0" type="submit" asp-area="" asp-controller="User" asp-action="Login">Login</button>
                     }
