@@ -5692,11 +5692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\johan\\GitLocalRepos\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+      "projectUniqueName": "C:\\Users\\johan\\source\\repos\\NookTemp\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
       "projectName": "GatewayAPI",
-      "projectPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+      "projectPath": "C:\\Users\\johan\\source\\repos\\NookTemp\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
       "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\GatewayAPISolution\\GatewayAPI\\obj\\",
+      "outputPath": "C:\\Users\\johan\\source\\repos\\NookTemp\\GatewayAPISolution\\GatewayAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

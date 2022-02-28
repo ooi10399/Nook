@@ -14,7 +14,7 @@
 }
 
 <div class="row">
-    @if (Model != null)
+    @if (Model.Rentee.Image != null)
     {
         <div class="col-md-4">
             <img src="@Url.Content(Model.Rentee.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
@@ -72,9 +72,9 @@
             </dd>
         </dl>
 
-        <form asp-action="Delete">
+        <form asp-action="DeleteRenteeAppointment">
             <input type="submit" value="Cancel appointment" class="btn btn-danger" />
-            <a asp-action="AllAppointment" class="btn btn-outline-info">Back to List</a>
+            <a asp-action="AllRenteeAppointment" class="btn btn-outline-info">Back to List</a>
         </form>
     </div>
 </div>

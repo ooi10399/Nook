@@ -69,6 +69,12 @@
                                 @Html.DisplayFor(modelItem => item.Status)
                             </p>
                         }
+                        @if (item.Status == NookMainApp.Constant.AppointmentStatus.Cancel)
+                        {
+                            <p class="text-danger">
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </p>
+                        }
                     </td>
                     @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
                     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rrdYOZqH79DOfFIQAm/HCf9A3JUX1eC/EMavDQ4MlmOtXoIZaCG0tkt7dPz06yHLgwwJJ4Pmb6/4PI4GTBxKpg==",
+  "dgSpecHash": "3LYK7Zh41ATqpru265OGQmdZZChTOfmJz8DjY2v0JNBViSpF+YZTU6+9nvHn6EwwwYuY1SYnO7JXxNTkLsGb5w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
+  "projectFilePath": "C:\\Users\\johan\\source\\repos\\NookTemp\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\johan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\johan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

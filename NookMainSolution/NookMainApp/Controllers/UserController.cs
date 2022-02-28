@@ -50,6 +50,7 @@ namespace NookMainApp.Controllers
                 {
                     HttpContext.Session.SetString("token", usr.Token);
                     HttpContext.Session.SetString("username", usr.Username);
+                    HttpContext.Session.SetString("usertype", usr.UserType);
                     if (usr.UserType == "Rentee")
                         return RedirectToAction("Create", "Rentee");
                     if (usr.UserType == "Renter")
@@ -84,6 +85,7 @@ namespace NookMainApp.Controllers
                 {
                     HttpContext.Session.SetString("token", usr.Token);
                     HttpContext.Session.SetString("username", usr.Username);
+                    HttpContext.Session.SetString("usertype", usr.UserType);
 
                     var id = HttpContext.Session.GetString("username");
                     if (usr.UserType == "Rentee")

@@ -17,6 +17,8 @@ namespace NookMainApp.Controllers
         private readonly IRepo<string, Rentee> _rrepo;
         private readonly IRepo<string, Renter> _r_repo;
 
+        IHttpContextAccessor HttpContextAccessor;
+
         public AppointmentController(ISingleUserRepo<string, Appointment> srepo, IRepo<int, Appointment> repo, 
             IRepo<string, Rentee> rrepo, IRepo<string, Renter> r_repo)
         {
@@ -40,6 +42,10 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController/Details/5
         public async Task<ActionResult> Details(int id)
         {
+            // TEMP FIX
+            if (id == 0)
+                return View();
+
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
@@ -67,6 +73,10 @@ namespace NookMainApp.Controllers
 
         public async Task<ActionResult> CreateAppointment(string UserId)
         {
+            // TEMP FIX
+            if (UserId == null)
+                return View();
+
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
@@ -176,6 +186,11 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
+
+            // TEMP FIX
+            if (id == 0)
+                return View(); 
+            
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
@@ -280,6 +295,10 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
+            // TEMP FIX
+            if (id == 0)
+                return View();
+
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
@@ -353,6 +372,10 @@ namespace NookMainApp.Controllers
         {
             try
             {
+                // TEMP FIX
+                if (id == 0)
+                    return View(); 
+                
                 string token = HttpContext.Session.GetString("token");
                 _repo.GetToken(token);
 
@@ -460,6 +483,10 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController/Details/5
         public async Task<ActionResult> RenteeAppointmentDetails(int id)
         {
+            // TEMP FIX
+            if (id == 0)
+                return View();
+
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
 
@@ -487,9 +514,14 @@ namespace NookMainApp.Controllers
 
         public async Task<ActionResult> DeleteRenteeAppointment(int id)
         {
+            // TEMP FIX
+            if (id == 0)
+                return View();
+
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
-
+            
+            
             var appt = await _repo.Get(id);
             var renter = await _r_repo.Get(appt.RenterUserName);
             if (appt != null)
@@ -509,6 +541,7 @@ namespace NookMainApp.Controllers
                 return View(appointment);
             }
             return View();
+            
         }
 
         [HttpPost]
@@ -524,7 +557,7 @@ namespace NookMainApp.Controllers
                 if (appt != null)
                 {
                     ViewBag.Message = "Your appointment has been cancel successfully.";
-                    return RedirectToAction("AllAppointment");
+                    return RedirectToAction("AllRenteeAppointment");
                 }
 
                 ViewBag.Message = "There is no such appointment.";

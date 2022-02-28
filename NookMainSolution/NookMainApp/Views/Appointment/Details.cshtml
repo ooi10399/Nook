@@ -9,9 +9,13 @@
 <hr />
 
 <div class="row">
-    <div class="col-md-4">
-        <img src="@Url.Content(Model.Rentee.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
-    </div>
+    @if (Model.Rentee.Image != null)
+    {
+        <div class="col-md-4">
+            <img src="@Url.Content(Model.Rentee.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
+        </div>
+    }
+
 
     <div class="col-md-8">
         <dl class="row">

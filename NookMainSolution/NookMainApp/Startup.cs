@@ -28,7 +28,6 @@ namespace NookMainApp
 
             // ==================================================================
             //services.AddSession();
-            services.AddHttpContextAccessor();
             services.AddScoped<LoginService>();
             services.AddScoped<IRepo<string, Rentee>, RenteeRepo>();
             services.AddScoped<IRepo<string, Renter>, RenterRepo>();
@@ -38,6 +37,7 @@ namespace NookMainApp
             {
                 opts.IdleTimeout = TimeSpan.FromMinutes(5);
             });
+            services.AddHttpContextAccessor();
             // ==================================================================
         }
 
