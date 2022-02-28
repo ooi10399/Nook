@@ -17,63 +17,89 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm sticky-top navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand text-info" asp-area="" asp-controller="Home" asp-action="Index">The Nook</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        @if (HttpContextAccessor.HttpContext.Session.GetString("username") != null)
-                        {
+    @if (HttpContextAccessor.HttpContext.Session.GetString("username") != null)
+    {
+        <header>
+            <nav class="navbar navbar-expand-sm sticky-top navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand text-info" asp-area="" asp-controller="Home" asp-action="Index">The Nook</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") != "Rentee")
-                                {
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllRenteeAppointment">My Appointments</a>
-                                }
-                                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") != "Renter")
-                                {
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllAppointment">My Appointment</a>
-                                }
+                                <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") != "Rentee")
-                                {
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="Details">My Profile</a>
-                                }
-                                @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") != "Renter")
-                                {
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Renter" asp-action="Details">My Profile</a>
-                                }
+                                <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
-                        }
+                            @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "Rentee")
+                            {
+                                <li class="nav-item">
+                                    @*<a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="GetAllRentees">Friends</a>*@
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="Details">MyDetail</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllRenteeAppointment">MyAppointment</a>
+                                </li>
+                            }
+                            @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "Renter")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="GetAllRentees">Friends</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Renter" asp-action="Details">MyDetail</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllAppointment">MyAppointment</a>
+                                </li>
+                            }
+
                         </ul>
-                </div>
-                <form class="form-inline ">
-                    @if (HttpContextAccessor.HttpContext.Session.GetString("username") != null)
-                    {
-                        @*<span class="navbar-text text-info ">
-                            @ViewData["Username"]
-                        </span>*@
+                    </div>
+                    <form class="form-inline ">
                         <button class="btn btn-outline-info text-dark my-2 my-sm-0" type="submit" asp-area="" asp-controller="User" asp-action="Logout">Logout</button>
-                    }
-                    else
-                    {
-                        <button class="btn btn-info text-light my-2 my-sm-0" type="submit" asp-area="" asp-controller="User" asp-action="Login">Login</button>
-                    }
-                </form>
-            </div>
-        </nav>
-    </header>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    }
+   else
+    {
+        <header>
+            <nav class="navbar navbar-expand-sm sticky-top navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand text-info" asp-area="" asp-controller="Home" asp-action="Index">The Nook</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            @*<li class="nav-item">
+                                <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="Index">Friends</a>
+
+                            </li>*@
+                        </ul>
+                    </div>
+                    <form class="form-inline ">
+                        <button class="btn btn-info text-light my-2 my-sm-0" type="submit" asp-area="" asp-controller="User" asp-action="Login">Login</button>                       
+                    </form>
+                </div>
+            </nav>
+        </header>
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -114,25 +114,26 @@ namespace NookMainApp.Controllers
             }
         }
 
-        public ActionResult Logout(int id)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
-            try
-            {
-                HttpContext.Session.Clear();
-                return RedirectToAction("Login", "User");
-            }
-            catch
-            {
-                return View();
-            }
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "User");
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Logout()
+        //{
+        //    try
+        //    {
+        //        HttpContext.Session.Clear();
+        //        return RedirectToAction("Login", "User");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
         // GET: UserController/Delete/5
         public ActionResult Delete(int id)
