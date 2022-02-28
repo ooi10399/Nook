@@ -77,44 +77,70 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
     <script>
+        //preset a min date
         var earliestDate = new Date(new Date(Date.now()).getTime() + 60 * 60 * 24 * 1000);
 
+        const eDate = timestampToDatetimeInputString(earliestDate);
+
+        const oriDate = document.getElementById("StartDateTime").value;
+
+        function timestampToDatetimeInputString(timestamp) {
+            const date = new Date((timestamp + _getTimeZoneOffsetInMs()));
+            // slice(0, 19) includes seconds
+            return date.toISOString().slice(0, 19);
+        }
+
+        function _getTimeZoneOffsetInMs() {
+            return new Date().getTimezoneOffset() * -60 * 1000;
+        }
+
+        //for calculate total fees
+        const fee = document.getElementById("Fees").value;
+
+        function getTotalHour(endTime, startTime) {
+            var totalTime = endTime - startTime;
+            return Math.ceil(totalTime / 3600000);
+        }
+
         function checkStartDate() {
-            var start = new Date(document.getElementById("StartDateTime").value);
-            var end = new Date(document.getElementById("EndDateTime").value);
+            document.getElementById("alertMessage").innerHTML = "";
+            document.getElementById('EndDateTime').value = "";
+
+            var start = document.getElementById("StartDateTime").value;
+            var end = start;
 
             if (new Date(start) < earliestDate) {
-                document.getElementById("alertMessage").innerHTML = "Please enter a date at least a day later.";
-                document.getElementById("StartDateTime").value = earliestDate;
-            }
-            else {
-                document.getElementById("alertMessage").innerHTML = "";
-                document.getElementById("EndDateTime").value = start;
+                document.getElementById("alertMessage").innerHTML = "Please select another date or time.";
+                document.getElementById("StartDateTime").value = oriDate;
             }
 
-            document.getElementById("TotalFees").value = Math.Ceil((end - start) / 3600000);
+            var timeInHour = getTotalHour(end, start);
+            var totalFee = timeInHour * fee;
+            document.getElementById("TotalFees").value = totalFee;
         }
 
         function checkEndDate() {
+            document.getElementById("alertMessage").innerHTML = "";
+
             var end = new Date(document.getElementById("EndDateTime").value);
             var start = new Date(document.getElementById("StartDateTime").value);
-
-            if (new Date(start) < earliestDate) {
-                document.getElementById("alertMessage").innerHTML = "Please enter a date at least a day later.";
-                document.getElementById("StartDateTime").value = earliestDate;
-            }
 
             if (end < start) {
                 document.getElementById("alertMessage").innerHTML = "Please enter a valid End Date and Time.";
                 document.getElementById("EndDateTime").value = "";
+                return;
             }
-            else {
-                document.getElementById("alertMessage").innerHTML = "";
-                var totalTime = end - start;
-                var timeInHour = Math.ceil(totalTime / 3600000);
-                var totalFee = timeInHour * document.getElementById("Fees").value;
-                document.getElementById("TotalFees").value = totalFee;
+
+            var timeInHour = getTotalHour(end, start);
+
+            if (timeInHour > 8) {
+                document.getElementById("alertMessage").innerHTML = "The appointment cannot more than 8 hours.";
+                document.getElementById("EndDateTime").value = ""
+                return;
             }
+
+            var totalFee = timeInHour * fee;
+            document.getElementById("TotalFees").value = totalFee;
         }
 
     </script>
