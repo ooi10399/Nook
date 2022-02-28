@@ -53,27 +53,19 @@
                     <td>
                         @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)
                         {
-                            <p class="text-warning">
-                                @Html.DisplayFor(modelItem => item.Status)
-                            </p>
+                            <p class="text-warning">@Html.DisplayFor(modelItem => item.Status)</p>
                         }
                         @if (item.Status == NookMainApp.Constant.AppointmentStatus.Completed)
                         {
-                            <p class="text-secondary">
-                                @Html.DisplayFor(modelItem => item.Status)
-                            </p>
+                            <p class="text-secondary">@Html.DisplayFor(modelItem => item.Status)</p>
                         }
                         @if (item.Status == NookMainApp.Constant.AppointmentStatus.Confirm)
                         {
-                            <p class="text-success">
-                                @Html.DisplayFor(modelItem => item.Status)
-                            </p>
+                            <p class="text-success">@Html.DisplayFor(modelItem => item.Status)</p>
                         }
                         @if (item.Status == NookMainApp.Constant.AppointmentStatus.Cancel)
                         {
-                            <p class="text-danger">
-                                @Html.DisplayFor(modelItem => item.Status)
-                            </p>
+                            <p class="text-danger">@Html.DisplayFor(modelItem => item.Status)</p>
                         }
                     </td>
                     @if (item.Status == NookMainApp.Constant.AppointmentStatus.Pending)

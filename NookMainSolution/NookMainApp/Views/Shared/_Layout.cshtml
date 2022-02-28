@@ -41,10 +41,10 @@
                                     @*<a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="GetAllRentees">Friends</a>*@
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="Details">MyDetail</a>
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="Details">My Details</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllRenteeAppointment">MyAppointment</a>
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllRenteeAppointment">My Appointments</a>
                                 </li>
                             }
                             @if (HttpContextAccessor.HttpContext.Session.GetString("usertype") == "Renter")
@@ -53,10 +53,10 @@
                                     <a class="nav-link text-info" asp-area="" asp-controller="Rentee" asp-action="GetAllRentees">Friends</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Renter" asp-action="Details">MyDetail</a>
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Renter" asp-action="Details">My Details</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllAppointment">MyAppointment</a>
+                                    <a class="nav-link text-info" asp-area="" asp-controller="Appointment" asp-action="AllAppointment">My Appointments</a>
                                 </li>
                             }
 
