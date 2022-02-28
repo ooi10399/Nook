@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {}
+    "C:\\Users\\Ooi\\Desktop\\Nook O\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {
+    "C:\\Users\\Ooi\\Desktop\\Nook O\\NookMainSolution\\NookMainApp\\NookMainApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
+        "projectUniqueName": "C:\\Users\\Ooi\\Desktop\\Nook O\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
         "projectName": "NookMainApp",
-        "projectPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
-        "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\NookMainSolution\\NookMainApp\\obj\\",
+        "projectPath": "C:\\Users\\Ooi\\Desktop\\Nook O\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
+        "packagesPath": "C:\\Users\\Ooi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ooi\\Desktop\\Nook O\\NookMainSolution\\NookMainApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Ooi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -73,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
