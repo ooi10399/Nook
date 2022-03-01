@@ -87,6 +87,14 @@ namespace NookMainApp.Controllers
                     HttpContext.Session.SetString("username", usr.Username);
                     HttpContext.Session.SetString("usertype", usr.UserType);
 
+                    if (HttpContext.Session.GetString("token") != null)
+                    {
+                        string token = HttpContext.Session.GetString("token");
+
+                        _rrepo.GetToken(token);
+                        _r_repo.GetToken(token);
+                    }
+
                     var id = HttpContext.Session.GetString("username");
                     if (usr.UserType == "Rentee")
                     {

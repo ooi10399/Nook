@@ -286,6 +286,81 @@ namespace NookMainApp.Controllers
             return true;
         }
 
+        // GET: AppointmentController/Edit/5
+        public async Task<ActionResult> UpdateAppointmentToComplete(int id)
+        {
+            string token = HttpContext.Session.GetString("token");
+            _repo.GetToken(token);
+
+            var appt = await _repo.Get(id);
+            var rentee = await _rrepo.Get(appt.RenteeUserName);
+            if (appt != null)
+            {
+                var appointment = new AppointmentViewModel
+                {
+                    AppointmentId = appt.AppointmentId,
+                    Fees = rentee.Fee,
+                    TotalFees = appt.Fees,
+                    StartDateTime = appt.StartDateTime,
+                    EndDateTime = appt.EndDateTime,
+                    Status = appt.Status,
+                    Rentee = rentee,
+                    Remark = appt.Remark,
+                    PlacementDate = appt.PlacementDate,
+                    UpdateDate = appt.UpdateDate,
+                    RenterUserName = appt.RenterUserName
+                };
+
+                return View(appointment);
+            }
+            return View();
+        }
+
+        // POST: AppointmentController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdateAppointmentToComplete(int id, AppointmentViewModel appt)
+        {
+            try
+            {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+
+                var appointment = await _repo.Get(id);
+                if (appointment != null)
+                {
+                    var latestAppt = new Appointment
+                    {
+                        AppointmentId = appointment.AppointmentId,
+                        RenteeUserName = appointment.RenteeUserName,
+                        RenterUserName = appointment.RenterUserName,
+                        StartDateTime = appointment.StartDateTime,
+                        EndDateTime = appointment.EndDateTime,
+                        Fees = appointment.Fees,
+                        Remark = appointment.Remark,
+                        PlacementDate = appointment.PlacementDate,
+                        Status = Constant.AppointmentStatus.Completed,
+                        UpdateDate = DateTime.Now
+                    };
+
+                    var app = await _repo.Update(latestAppt);
+                    if (app != null)
+                    {
+                        ViewBag.Message = "Appointment updated";
+                        return RedirectToAction("AllAppointment");
+                    }
+                }
+
+                ViewBag.Message = "Oops, No such appointment.";
+                return RedirectToAction("AllAppointment");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "Oops, please try again later.";
+                return View();
+            }
+        }
+
         // GET: AppointmentController/Delete/5
         public async Task<ActionResult> Delete(int id)
         {

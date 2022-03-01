@@ -1,0 +1,74 @@
+﻿@model NookMainApp.ViewModels.AppointmentViewModel
+
+@{
+    ViewData["Title"] = "Complete Appointment";
+}
+
+<h2>Is the appointment completed?</h2>
+<hr />
+
+<div class="row">
+    @*@if (Model.Rentee.Image != null)
+        {
+            <div class="col-md-4">
+                <img src="@Url.Content(Model.Rentee.Image)" alt="profile image" width="200" style="object-fit: cover; object-position: left;">
+            </div>
+        }*@
+
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-4">
+            </dt>
+            <dd class="col-sm-8">
+                @Html.HiddenFor(model => model.AppointmentId)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Rentee.NickName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Rentee.NickName)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.StartDateTime)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.StartDateTime)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.EndDateTime)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.EndDateTime)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Fees)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Fees)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.TotalFees)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.TotalFees)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+        </dl>
+
+        <form asp-action="UpdateAppointmentToComplete">
+            <input type="submit" value="Complete" class="btn btn-info" />
+            <a asp-action="AllAppointment" class="btn btn-outline-info">Back to List</a>
+        </form>
+    </div>
+</div>
