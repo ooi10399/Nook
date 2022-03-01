@@ -301,3 +301,4 @@ C:\Users\johan\GitLocalRepos\Nook\AppointmentAPI\NookAppointmentAPI\obj\Debug\ne
 C:\Users\johan\GitLocalRepos\Nook\AppointmentAPI\NookAppointmentAPI\obj\Debug\net5.0\ref\NookAppointmentAPI.dll
 C:\Users\johan\GitLocalRepos\Nook\AppointmentAPI\NookAppointmentAPI\obj\Debug\net5.0\NookAppointmentAPI.pdb
 C:\Users\johan\GitLocalRepos\Nook\AppointmentAPI\NookAppointmentAPI\obj\Debug\net5.0\NookAppointmentAPI.genruntimeconfig.cache
+C:\Users\ACER\Documents\ahyun_workLife\Collabera\Nook\AppointmentAPI\NookAppointmentAPI\bin\Debug\net5.0\NookAppointmentAPI.StaticWebAssets.xml

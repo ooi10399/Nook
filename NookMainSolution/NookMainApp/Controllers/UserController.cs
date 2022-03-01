@@ -56,6 +56,7 @@ namespace NookMainApp.Controllers
                     if (usr.UserType == "Renter")
                         return RedirectToAction("Create", "Renter");
                 }
+                ViewBag.Types = GetUserType();
                 var errorMessage = String.Format("Invalid inputs. Email is already registered. Please login or use another account.");
                 ModelState.AddModelError(string.Empty, errorMessage);
                 return View();
@@ -128,40 +129,25 @@ namespace NookMainApp.Controllers
             return RedirectToAction("Login", "User");
         }
 
+        //// GET: UserController/Delete/5
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
+
+        //// POST: UserController/Delete/5
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Logout()
+        //public ActionResult Delete(int id, IFormCollection collection)
         //{
         //    try
         //    {
-        //        HttpContext.Session.Clear();
-        //        return RedirectToAction("Login", "User");
+        //        return RedirectToAction(nameof(Index));
         //    }
         //    catch
         //    {
         //        return View();
         //    }
         //}
-
-        // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: UserController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

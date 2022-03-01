@@ -38,28 +38,37 @@ namespace NookMainApp.Controllers
                 var rens = await _repo.GetAll();
                 return View(rens.ToList());
             }
-            return View();
+
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         // GET: RenteeController/Details/5
         public async Task<ActionResult> Details(string id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            if (HttpContext.Session.GetString("token") != null)
+            {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
 
-            ViewBag.username = HttpContext.Session.GetString("username");
-            id = HttpContext.Session.GetString("username");
-            var ren = await _repo.Get(id);
-            //if(ren == null)
-            //    return RedirectToAction("Create", "Rentee");
-            return View(ren);
+                ViewBag.username = HttpContext.Session.GetString("username");
+                id = HttpContext.Session.GetString("username");
+                var ren = await _repo.Get(id);
+                return View(ren);
+            }
+
+            return RedirectToAction("SessionExpired", "Home");
+
         }
 
         // GET: RenteeController/Create
         public ActionResult Create()
-        {         
-            ViewBag.Genders = GetGender();
-            return View();
+        {
+            if (HttpContext.Session.GetString("token") != null)
+            {
+                ViewBag.Genders = GetGender();
+                return View();
+            }
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         // POST: RenteeController/Create
@@ -74,6 +83,15 @@ namespace NookMainApp.Controllers
 
                 ViewBag.Genders = GetGender();
                 ren.UserId = HttpContext.Session.GetString("username");
+                if(ren.Image == null)
+                {
+                    switch (ren.Gender)
+                    {
+                        case "Female": ren.Image = "https://restorixhealth.com/wp-content/uploads/2018/08/No-Image.png"; break;
+                        case "Male": ren.Image = "https://restorixhealth.com/wp-content/uploads/2018/08/No-Image.png"; break;
+                        default: ren.Image = "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"; break;
+                    }
+                }
                 await _repo.Add(ren);
                 return RedirectToAction("Details");
             }
@@ -86,13 +104,18 @@ namespace NookMainApp.Controllers
         // GET: RenteeController/Edit/5
         public async Task<ActionResult> Edit(string id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
-            id = HttpContext.Session.GetString("username");
+            if (HttpContext.Session.GetString("token") != null)
+            {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+                id = HttpContext.Session.GetString("username");
 
-            ViewBag.Genders = GetGender();
-            var ren = await _repo.Get(id);
-            return View(ren);
+                ViewBag.Genders = GetGender();
+                var ren = await _repo.Get(id);
+                return View(ren);
+            }
+
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         // POST: RenteeController/Edit/5
@@ -124,11 +147,17 @@ namespace NookMainApp.Controllers
         // GET: RenteeController/Delete/5
         public async Task<ActionResult> Delete(string id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            if (HttpContext.Session.GetString("token") != null)
+            {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
 
-            var ren = await _repo.Get(id);
-            return View(ren);
+                var ren = await _repo.Get(id);
+                return View(ren);
+            }
+
+            return RedirectToAction("SessionExpired", "Home");
+
         }
 
         // POST: RenteeController/Delete/5
@@ -153,22 +182,34 @@ namespace NookMainApp.Controllers
 
         public async Task<ActionResult> GetAllRentees()
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            if (HttpContext.Session.GetString("token") != null)
+            {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
 
-            ViewBag.LoginUser = HttpContext.Session.GetString("username");
-            var rentees = await _repo.GetAll();
-            return View(rentees);
+                ViewBag.LoginUser = HttpContext.Session.GetString("username");
+                var rentees = await _repo.GetAll();
+                return View(rentees);
+            }
+
+            return RedirectToAction("SessionExpired", "Home");
+
         }
 
         public async Task<ActionResult> GetRenteeDetails(string id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            if (HttpContext.Session.GetString("token") != null)
+            {
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
 
-            ViewBag.LoginUser = HttpContext.Session.GetString("username");
-            var ren = await _repo.Get(id);
-            return View(ren);
+                ViewBag.LoginUser = HttpContext.Session.GetString("username");
+                var ren = await _repo.Get(id);
+                return View(ren);
+            }
+
+            return RedirectToAction("SessionExpired", "Home");
+
         }
     }
 }

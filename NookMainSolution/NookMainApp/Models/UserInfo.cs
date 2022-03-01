@@ -34,7 +34,8 @@ namespace NookMainApp.Models
         public string Gender { get; set; }
         public string About { get; set; }
         public string Image { get; set; }
-        bool value = false;
+        //set all user as active
+        bool value = true;
         public bool IsActive
         {
             get { return this.value; }

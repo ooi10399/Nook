@@ -31,62 +31,76 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController
         public async Task<ActionResult> AllAppointment()
         {
-            string token = HttpContext.Session.GetString("token");
-            _srepo.GetToken(token);
+            if (HttpContext.Session.GetString("token") != null)
+            {
+                string token = HttpContext.Session.GetString("token");
+                _srepo.GetToken(token);
 
-            var userName = HttpContext.Session.GetString("username");
-            var appointments = await _srepo.GetAll(userName);
-            return View(appointments);
+                var userName = HttpContext.Session.GetString("username");
+                var appointments = await _srepo.GetAll(userName);
+                return View(appointments);
+            }
+
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         // GET: AppointmentController/Details/5
         public async Task<ActionResult> Details(int id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
-            _rrepo.GetToken(token);
-
-            var appt = await _repo.Get(id);
-            var rentee = await _rrepo.Get(appt.RenteeUserName);
-            if (appt != null)
+            if (HttpContext.Session.GetString("token") != null)
             {
-                var appointment = new AppointmentViewModel
-                {
-                    AppointmentId = appt.AppointmentId,
-                    Fees = rentee.Fee,
-                    TotalFees = appt.Fees,
-                    StartDateTime = appt.StartDateTime,
-                    EndDateTime = appt.EndDateTime,
-                    Status = appt.Status,
-                    Remark = appt.Remark,
-                    Rentee = rentee,
-                    RenterUserName = appt.RenterUserName
-                };
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+                _rrepo.GetToken(token);
 
-                return View(appointment);
+                var appt = await _repo.Get(id);
+                var rentee = await _rrepo.Get(appt.RenteeUserName);
+                if (appt != null)
+                {
+                    var appointment = new AppointmentViewModel
+                    {
+                        AppointmentId = appt.AppointmentId,
+                        Fees = rentee.Fee,
+                        TotalFees = appt.Fees,
+                        StartDateTime = appt.StartDateTime,
+                        EndDateTime = appt.EndDateTime,
+                        Status = appt.Status,
+                        Remark = appt.Remark,
+                        Rentee = rentee,
+                        RenterUserName = appt.RenterUserName
+                    };
+
+                    return View(appointment);
+                }
+                return View();
             }
-            return View();
+
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         public async Task<ActionResult> CreateAppointment(string UserId)
         {
-            string token = HttpContext.Session.GetString("token");
-            _r_repo.GetToken(token);
-            _rrepo.GetToken(token);
-
-
-
-            if (HttpContext.Session.GetString("username") != null)
+            if (HttpContext.Session.GetString("token") != null)
             {
-                var ren = await _r_repo.Get(HttpContext.Session.GetString("username"));
-                if (ren == null)
-                    return RedirectToAction("Create", "Renter");
+                string token = HttpContext.Session.GetString("token");
+                _r_repo.GetToken(token);
+                _rrepo.GetToken(token);
+
+                if (HttpContext.Session.GetString("username") != null)
+                {
+                    var ren = await _r_repo.Get(HttpContext.Session.GetString("username"));
+                    if (ren == null)
+                        return RedirectToAction("Create", "Renter");
+                }
+
+                var rentee = await _rrepo.Get(UserId);
+                var appointment = new AppointmentViewModel { Rentee = rentee, Fees = rentee.Fee };
+
+                return View(appointment);
             }
 
-            var rentee = await _rrepo.Get(UserId);
-            var appointment = new AppointmentViewModel {Rentee = rentee, Fees = rentee.Fee};
+            return RedirectToAction("SessionExpired", "Home");
 
-            return View(appointment);
         }
 
         // POST: AppointmentController/Create
@@ -96,39 +110,44 @@ namespace NookMainApp.Controllers
         {
             try
             {
-                string token = HttpContext.Session.GetString("token");
-                _repo.GetToken(token);
-
-                appointment.RenterUserName = HttpContext.Session.GetString("username");
-
-                bool isRenterApptDuplicated = await CheckingRenterAppointment(appointment.RenterUserName, appointment.StartDateTime, appointment.EndDateTime);
-                if (!isRenterApptDuplicated)
+                if (HttpContext.Session.GetString("token") != null)
                 {
-                    ViewBag.Message = "Sorry, you already have a appointment on same day and time. Please check.";
-                    return View(appointment);
+                    string token = HttpContext.Session.GetString("token");
+                    _repo.GetToken(token);
+
+                    appointment.RenterUserName = HttpContext.Session.GetString("username");
+
+                    bool isRenterApptDuplicated = await CheckingRenterAppointment(appointment.RenterUserName, appointment.StartDateTime, appointment.EndDateTime);
+                    if (!isRenterApptDuplicated)
+                    {
+                        ViewBag.Message = "Sorry, you already have a appointment on same day and time. Please check.";
+                        return View(appointment);
+                    }
+
+                    var appt = new Appointment
+                    {
+                        RenteeUserName = appointment.RenteeUserName,
+                        RenterUserName = appointment.RenterUserName,
+                        StartDateTime = appointment.StartDateTime,
+                        EndDateTime = appointment.EndDateTime,
+                        Fees = appointment.TotalFees,
+                        PlacementDate = DateTime.Now,
+                        Remark = appointment.Remark,
+                        UpdateDate = DateTime.Now,
+                        Status = Constant.AppointmentStatus.Pending
+                    };
+
+                    var app = await _repo.Add(appt);
+                    if (app != null)
+                    {
+                        return RedirectToAction("AllAppointment");
+                    }
+
+                    ViewBag.Message = "Oops, please try again.";
+                    return View();
                 }
-                                 
-                var appt = new Appointment
-                {
-                    RenteeUserName = appointment.RenteeUserName,
-                    RenterUserName = appointment.RenterUserName,
-                    StartDateTime = appointment.StartDateTime,
-                    EndDateTime = appointment.EndDateTime,
-                    Fees = appointment.TotalFees,
-                    PlacementDate = DateTime.Now,
-                    Remark = appointment.Remark,
-                    UpdateDate = DateTime.Now,
-                    Status = Constant.AppointmentStatus.Pending
-                };
 
-                var app = await _repo.Add(appt);
-                if (app != null)
-                {
-                    return RedirectToAction("AllAppointment");
-                }
-
-                ViewBag.Message = "Oops, please try again.";
-                return View();
+                return RedirectToAction("SessionExpired", "Home");
             }
             catch (Exception ex)
             {
@@ -138,7 +157,7 @@ namespace NookMainApp.Controllers
         }
 
         private async Task<bool> CheckingRenteeAppointment(string renteeUserName, DateTime start, DateTime end)
-        {
+        {          
             string token = HttpContext.Session.GetString("token");
             _srepo.GetToken(token);
 
@@ -179,33 +198,38 @@ namespace NookMainApp.Controllers
 
         // GET: AppointmentController/Edit/5
         public async Task<ActionResult> Edit(int id)
-        {            
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
-            _rrepo.GetToken(token);
-
-            var appt = await _repo.Get(id);
-            var rentee = await _rrepo.Get(appt.RenteeUserName);
-            if(appt != null)
+        {
+            if (HttpContext.Session.GetString("token") != null)
             {
-                var appointment = new AppointmentViewModel
-                {
-                    AppointmentId = appt.AppointmentId,
-                    Fees = rentee.Fee,
-                    TotalFees = appt.Fees,
-                    StartDateTime = appt.StartDateTime,
-                    EndDateTime = appt.EndDateTime,
-                    Status = appt.Status,
-                    Rentee = rentee,
-                    Remark = appt.Remark,
-                    PlacementDate = appt.PlacementDate,
-                    UpdateDate = appt.UpdateDate,
-                    RenterUserName = appt.RenterUserName
-                };
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+                _rrepo.GetToken(token);
 
-                return View(appointment);
+                var appt = await _repo.Get(id);
+                var rentee = await _rrepo.Get(appt.RenteeUserName);
+                if (appt != null)
+                {
+                    var appointment = new AppointmentViewModel
+                    {
+                        AppointmentId = appt.AppointmentId,
+                        Fees = rentee.Fee,
+                        TotalFees = appt.Fees,
+                        StartDateTime = appt.StartDateTime,
+                        EndDateTime = appt.EndDateTime,
+                        Status = appt.Status,
+                        Rentee = rentee,
+                        Remark = appt.Remark,
+                        PlacementDate = appt.PlacementDate,
+                        UpdateDate = appt.UpdateDate,
+                        RenterUserName = appt.RenterUserName
+                    };
+
+                    return View(appointment);
+                }
+                return View();
             }
-            return View();
+
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         // POST: AppointmentController/Edit/5
@@ -215,44 +239,50 @@ namespace NookMainApp.Controllers
         {
             try
             {
-                string token = HttpContext.Session.GetString("token");
-                _repo.GetToken(token);
-
-                var newAppt = appt;
-                var appointment = await _repo.Get(appt.AppointmentId);
-                if(appointment != null)
+                if (HttpContext.Session.GetString("token") != null)
                 {
-                    bool isRenterApptDuplicated = await CheckingRenterAppointmentByApptId(appointment, newAppt);
-                    if (!isRenterApptDuplicated)
+                    string token = HttpContext.Session.GetString("token");
+                    _repo.GetToken(token);
+
+                    var newAppt = appt;
+                    var appointment = await _repo.Get(appt.AppointmentId);
+                    if (appointment != null)
                     {
-                        ViewBag.Message = "Sorry, you already have a appointment on same day and time. Please check.";
-                        return View(newAppt);
+                        bool isRenterApptDuplicated = await CheckingRenterAppointmentByApptId(appointment, newAppt);
+                        if (!isRenterApptDuplicated)
+                        {
+                            ViewBag.Message = "Sorry, you already have a appointment on same day and time. Please check.";
+                            return View(newAppt);
+                        }
+
+                        var latestAppt = new Appointment
+                        {
+                            AppointmentId = newAppt.AppointmentId,
+                            RenteeUserName = appointment.RenteeUserName,
+                            RenterUserName = appointment.RenterUserName,
+                            StartDateTime = newAppt.StartDateTime,
+                            EndDateTime = newAppt.EndDateTime,
+                            Fees = newAppt.TotalFees,
+                            Remark = newAppt.Remark,
+                            PlacementDate = appointment.PlacementDate,
+                            Status = newAppt.Status,
+                            UpdateDate = DateTime.Now
+                        };
+
+                        var app = await _repo.Update(latestAppt);
+                        if (app != null)
+                        {
+                            ViewBag.Message = "Appointment updated";
+                            return RedirectToAction("AllAppointment");
+                        }
                     }
 
-                    var latestAppt = new Appointment
-                    {
-                        AppointmentId = newAppt.AppointmentId,
-                        RenteeUserName = appointment.RenteeUserName,
-                        RenterUserName = appointment.RenterUserName,
-                        StartDateTime = newAppt.StartDateTime,
-                        EndDateTime = newAppt.EndDateTime,
-                        Fees = newAppt.TotalFees,
-                        Remark = newAppt.Remark,
-                        PlacementDate = appointment.PlacementDate,
-                        Status = newAppt.Status,
-                        UpdateDate = DateTime.Now
-                    };
-
-                    var app = await _repo.Update(latestAppt);
-                    if (app != null)
-                    {
-                        ViewBag.Message = "Appointment updated";
-                        return RedirectToAction("AllAppointment");
-                    }
+                    ViewBag.Message = "Oops, No such appointment.";
+                    return RedirectToAction("AllAppointment");
                 }
-               
-                ViewBag.Message = "Oops, No such appointment.";
-                return RedirectToAction("AllAppointment");
+
+                return RedirectToAction("SessionExpired", "Home");
+
             }
             catch (Exception ex)
             {
@@ -285,32 +315,37 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController/Edit/5
         public async Task<ActionResult> UpdateAppointmentToComplete(int id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
-            _rrepo.GetToken(token);
-
-            var appt = await _repo.Get(id);
-            var rentee = await _rrepo.Get(appt.RenteeUserName);
-            if (appt != null)
+            if (HttpContext.Session.GetString("token") != null)
             {
-                var appointment = new AppointmentViewModel
-                {
-                    AppointmentId = appt.AppointmentId,
-                    Fees = rentee.Fee,
-                    TotalFees = appt.Fees,
-                    StartDateTime = appt.StartDateTime,
-                    EndDateTime = appt.EndDateTime,
-                    Status = appt.Status,
-                    Rentee = rentee,
-                    Remark = appt.Remark,
-                    PlacementDate = appt.PlacementDate,
-                    UpdateDate = appt.UpdateDate,
-                    RenterUserName = appt.RenterUserName
-                };
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+                _rrepo.GetToken(token);
 
-                return View(appointment);
+                var appt = await _repo.Get(id);
+                var rentee = await _rrepo.Get(appt.RenteeUserName);
+                if (appt != null)
+                {
+                    var appointment = new AppointmentViewModel
+                    {
+                        AppointmentId = appt.AppointmentId,
+                        Fees = rentee.Fee,
+                        TotalFees = appt.Fees,
+                        StartDateTime = appt.StartDateTime,
+                        EndDateTime = appt.EndDateTime,
+                        Status = appt.Status,
+                        Rentee = rentee,
+                        Remark = appt.Remark,
+                        PlacementDate = appt.PlacementDate,
+                        UpdateDate = appt.UpdateDate,
+                        RenterUserName = appt.RenterUserName
+                    };
+
+                    return View(appointment);
+                }
+                return View();
             }
-            return View();
+
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         // POST: AppointmentController/Edit/5
@@ -320,36 +355,42 @@ namespace NookMainApp.Controllers
         {
             try
             {
-                string token = HttpContext.Session.GetString("token");
-                _repo.GetToken(token);
-
-                var appointment = await _repo.Get(id);
-                if (appointment != null)
+                if (HttpContext.Session.GetString("token") != null)
                 {
-                    var latestAppt = new Appointment
-                    {
-                        AppointmentId = appointment.AppointmentId,
-                        RenteeUserName = appointment.RenteeUserName,
-                        RenterUserName = appointment.RenterUserName,
-                        StartDateTime = appointment.StartDateTime,
-                        EndDateTime = appointment.EndDateTime,
-                        Fees = appointment.Fees,
-                        Remark = appointment.Remark,
-                        PlacementDate = appointment.PlacementDate,
-                        Status = Constant.AppointmentStatus.Completed,
-                        UpdateDate = DateTime.Now
-                    };
+                    string token = HttpContext.Session.GetString("token");
+                    _repo.GetToken(token);
 
-                    var app = await _repo.Update(latestAppt);
-                    if (app != null)
+                    var appointment = await _repo.Get(id);
+                    if (appointment != null)
                     {
-                        ViewBag.Message = "Appointment updated";
-                        return RedirectToAction("AllAppointment");
+                        var latestAppt = new Appointment
+                        {
+                            AppointmentId = appointment.AppointmentId,
+                            RenteeUserName = appointment.RenteeUserName,
+                            RenterUserName = appointment.RenterUserName,
+                            StartDateTime = appointment.StartDateTime,
+                            EndDateTime = appointment.EndDateTime,
+                            Fees = appointment.Fees,
+                            Remark = appointment.Remark,
+                            PlacementDate = appointment.PlacementDate,
+                            Status = Constant.AppointmentStatus.Completed,
+                            UpdateDate = DateTime.Now
+                        };
+
+                        var app = await _repo.Update(latestAppt);
+                        if (app != null)
+                        {
+                            ViewBag.Message = "Appointment updated";
+                            return RedirectToAction("AllAppointment");
+                        }
                     }
+
+                    ViewBag.Message = "Oops, No such appointment.";
+                    return RedirectToAction("AllAppointment");
                 }
 
-                ViewBag.Message = "Oops, No such appointment.";
-                return RedirectToAction("AllAppointment");
+                return RedirectToAction("SessionExpired", "Home");
+
             }
             catch (Exception ex)
             {
@@ -361,30 +402,36 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
-            _rrepo.GetToken(token);
-
-            var appt = await _repo.Get(id);
-            var rentee = await _rrepo.Get(appt.RenteeUserName);
-            if (appt != null)
+            if (HttpContext.Session.GetString("token") != null)
             {
-                var appointment = new AppointmentViewModel
-                {
-                    AppointmentId = appt.AppointmentId,
-                    Fees = rentee.Fee,
-                    TotalFees = appt.Fees,
-                    StartDateTime = appt.StartDateTime,
-                    EndDateTime = appt.EndDateTime,
-                    Status = appt.Status,
-                    Remark = appt.Remark,
-                    Rentee = rentee,
-                    RenterUserName = appt.RenterUserName
-                };
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+                _rrepo.GetToken(token);
 
-                return View(appointment);
+                var appt = await _repo.Get(id);
+                var rentee = await _rrepo.Get(appt.RenteeUserName);
+                if (appt != null)
+                {
+                    var appointment = new AppointmentViewModel
+                    {
+                        AppointmentId = appt.AppointmentId,
+                        Fees = rentee.Fee,
+                        TotalFees = appt.Fees,
+                        StartDateTime = appt.StartDateTime,
+                        EndDateTime = appt.EndDateTime,
+                        Status = appt.Status,
+                        Remark = appt.Remark,
+                        Rentee = rentee,
+                        RenterUserName = appt.RenterUserName
+                    };
+
+                    return View(appointment);
+                }
+                return View();
             }
-            return View();
+
+            return RedirectToAction("SessionExpired", "Home");
+
         }
 
         // POST: AppointmentController/Delete/5
@@ -394,18 +441,23 @@ namespace NookMainApp.Controllers
         {
             try
             {
-                string token = HttpContext.Session.GetString("token");
-                _repo.GetToken(token);
-
-                var appt = await _repo.Delete(id);
-                if(appt != null)
+                if (HttpContext.Session.GetString("token") != null)
                 {
-                    ViewBag.Message = "Your appointment has been cancel successfully.";
-                    return RedirectToAction("AllAppointment");
+                    string token = HttpContext.Session.GetString("token");
+                    _repo.GetToken(token);
+
+                    var appt = await _repo.Delete(id);
+                    if (appt != null)
+                    {
+                        ViewBag.Message = "Your appointment has been cancel successfully.";
+                        return RedirectToAction("AllAppointment");
+                    }
+
+                    ViewBag.Message = "There is no such appointment.";
+                    return View();
                 }
 
-                ViewBag.Message = "There is no such appointment.";
-                return View();
+                return RedirectToAction("SessionExpired", "Home");
 
             }
             catch
@@ -419,46 +471,58 @@ namespace NookMainApp.Controllers
 
         public async Task<ActionResult> AllRenteeAppointment()
         {
-            string token = HttpContext.Session.GetString("token");
-            _srepo.GetToken(token);
-
-            var userName = HttpContext.Session.GetString("username");
-            var appointments = await _srepo.GetAll(userName);
-            
-            if (appointments != null)
+            if (HttpContext.Session.GetString("token") != null)
             {
-               return View(appointments);
+                string token = HttpContext.Session.GetString("token");
+                _srepo.GetToken(token);
+
+                var userName = HttpContext.Session.GetString("username");
+                var appointments = await _srepo.GetAll(userName);
+
+                if (appointments != null)
+                {
+                    return View(appointments);
+                }
+                return View();
             }
-            return View();
+
+            return RedirectToAction("SessionExpired", "Home");
+
         }
         public async Task<ActionResult> EditRenteeAppointment(int id)
         {
             try
-            {                
-                string token = HttpContext.Session.GetString("token");
-                _repo.GetToken(token);
-                _r_repo.GetToken(token);
-
-                var appt = await _repo.Get(id);
-                var renter = await _r_repo.Get(appt.RenterUserName);
-                if (appt != null)
+            {
+                if (HttpContext.Session.GetString("token") != null)
                 {
-                    var appointment = new AppointmentViewModel
-                    {
-                        AppointmentId = appt.AppointmentId,
-                        TotalFees = appt.Fees,
-                        StartDateTime = appt.StartDateTime,
-                        EndDateTime = appt.EndDateTime,
-                        Remark = appt.Remark,
-                        Status = appt.Status,
-                        Renter = renter
-                    };
+                    string token = HttpContext.Session.GetString("token");
+                    _repo.GetToken(token);
+                    _r_repo.GetToken(token);
 
-                    return View(appointment);
+                    var appt = await _repo.Get(id);
+                    var renter = await _r_repo.Get(appt.RenterUserName);
+                    if (appt != null)
+                    {
+                        var appointment = new AppointmentViewModel
+                        {
+                            AppointmentId = appt.AppointmentId,
+                            TotalFees = appt.Fees,
+                            StartDateTime = appt.StartDateTime,
+                            EndDateTime = appt.EndDateTime,
+                            Remark = appt.Remark,
+                            Status = appt.Status,
+                            Renter = renter
+                        };
+
+                        return View(appointment);
+                    }
+                    return View();
                 }
-                return View();
+
+                return RedirectToAction("SessionExpired", "Home");
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
@@ -543,58 +607,68 @@ namespace NookMainApp.Controllers
         // GET: AppointmentController/Details/5
         public async Task<ActionResult> RenteeAppointmentDetails(int id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
-            _r_repo.GetToken(token);
-
-            var appt = await _repo.Get(id);
-            var renter = await _r_repo.Get(appt.RenterUserName);
-            if (appt != null)
+            if (HttpContext.Session.GetString("token") != null)
             {
-                var appointment = new AppointmentViewModel
-                {
-                    AppointmentId = appt.AppointmentId,
-                    TotalFees = appt.Fees,
-                    StartDateTime = appt.StartDateTime,
-                    EndDateTime = appt.EndDateTime,
-                    Status = appt.Status,
-                    Renter = renter,
-                    Remark = appt.Remark,
-                    PlacementDate = appt.PlacementDate,
-                    RenterUserName = appt.RenterUserName
-                };
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+                _r_repo.GetToken(token);
 
-                return View(appointment);
+                var appt = await _repo.Get(id);
+                var renter = await _r_repo.Get(appt.RenterUserName);
+                if (appt != null)
+                {
+                    var appointment = new AppointmentViewModel
+                    {
+                        AppointmentId = appt.AppointmentId,
+                        TotalFees = appt.Fees,
+                        StartDateTime = appt.StartDateTime,
+                        EndDateTime = appt.EndDateTime,
+                        Status = appt.Status,
+                        Renter = renter,
+                        Remark = appt.Remark,
+                        PlacementDate = appt.PlacementDate,
+                        RenterUserName = appt.RenterUserName
+                    };
+
+                    return View(appointment);
+                }
+                return View();
             }
-            return View();
+
+            return RedirectToAction("SessionExpired", "Home");
+
         }
 
         public async Task<ActionResult> DeleteRenteeAppointment(int id)
         {
-            string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
-            _r_repo.GetToken(token);
-
-            var appt = await _repo.Get(id);
-            var renter = await _r_repo.Get(appt.RenterUserName);
-            if (appt != null)
+            if (HttpContext.Session.GetString("token") != null)
             {
-                var appointment = new AppointmentViewModel
-                {
-                    AppointmentId = appt.AppointmentId,
-                    TotalFees = appt.Fees,
-                    StartDateTime = appt.StartDateTime,
-                    EndDateTime = appt.EndDateTime,
-                    Status = appt.Status,
-                    Renter = renter,
-                    Remark = appt.Remark,
-                    RenterUserName = appt.RenterUserName
-                };
+                string token = HttpContext.Session.GetString("token");
+                _repo.GetToken(token);
+                _r_repo.GetToken(token);
 
-                return View(appointment);
+                var appt = await _repo.Get(id);
+                var renter = await _r_repo.Get(appt.RenterUserName);
+                if (appt != null)
+                {
+                    var appointment = new AppointmentViewModel
+                    {
+                        AppointmentId = appt.AppointmentId,
+                        TotalFees = appt.Fees,
+                        StartDateTime = appt.StartDateTime,
+                        EndDateTime = appt.EndDateTime,
+                        Status = appt.Status,
+                        Renter = renter,
+                        Remark = appt.Remark,
+                        RenterUserName = appt.RenterUserName
+                    };
+
+                    return View(appointment);
+                }
+                return View();
             }
-            return View();
-            
+
+            return RedirectToAction("SessionExpired", "Home");
         }
 
         [HttpPost]

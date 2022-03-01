@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "48eEEc6yJkdcPvQvWNnjiN6er2Tc4TBrLYkxMJHqvXiwAIF57XZzjvHtQsumrEkTfOJMOZLuaaCfpFGF19mpFw==",
+  "dgSpecHash": "SofsAnhPes8TDZOpivFePGBua+0jhyOGxUbRYmaVuRE9FgOWGv5ZwOlw0LKjxfUBnwhdRuwVMO3F6mM2IOxAtw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v2_joMinorUpdate\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\NookMainSolution\\NookMainApp\\NookMainApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
