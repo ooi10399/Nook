@@ -82,7 +82,7 @@
         function timestampToDatetimeInputString(timestamp) {
             const date = new Date((timestamp + _getTimeZoneOffsetInMs()));
             // slice(0, 19) includes seconds
-            return date.toISOString().slice(0, 19);
+            return date.toISOString().slice(0, 16);
         }
 
         function _getTimeZoneOffsetInMs() {
@@ -121,7 +121,7 @@
             var start = new Date(document.getElementById("StartDateTime").value);
 
             if (end < start) {
-                document.getElementById("alertMessage").innerHTML = "Please enter a valid End Date and Time.";
+                document.getElementById("alertMessage").innerHTML = "Please enter a valid end date and time.";
                 document.getElementById("EndDateTime").value = "";
                 return;
             }

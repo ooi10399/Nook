@@ -1479,3 +1479,5 @@ C:\Users\ACER\Documents\ahyun_workLife\Collabera\Nook\NookMainSolution\NookMainA
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\ref\NookMainApp.dll
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMainApp.pdb
 C:\Users\ACER\Documents\ahyun_workLife\Collabera\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\NookMainApp.genruntimeconfig.cache
+C:\Users\johan\GitLocalRepos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Appointment\UpdateAppointmentToComplete.cshtml.g.cs
+C:\Users\johan\GitLocalRepos\Nook\NookMainSolution\NookMainApp\obj\Debug\net5.0\Razor\Views\Home\SessionExpired.cshtml.g.cs
