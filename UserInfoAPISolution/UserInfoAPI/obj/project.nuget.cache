@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wrELQNXUakif5JXpA35+SPuXVzFtjqPWZAWjzo22s53IqJRE01ZzcbccKIxfAXrznl18G8Jj7EW+Du3AQ3yIEA==",
+  "dgSpecHash": "PRfeKrL2Mpj2gEsjLu3yrDy522CzJRv5IqAF/QKjcxyNbTC4IaoCZcuetpd/NcNe4IdHLJoHrxFsa7eqHjgJSQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

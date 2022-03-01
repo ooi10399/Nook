@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {}
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
         "projectName": "GatewayAPI",
-        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\obj\\",
+        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\GatewayAPISolution\\GatewayAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

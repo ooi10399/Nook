@@ -5984,11 +5984,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
+      "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
       "projectName": "NookAppointmentAPI",
-      "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
+      "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\AppointmentAPI\\NookAppointmentAPI\\obj\\",
+      "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\AppointmentAPI\\NookAppointmentAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

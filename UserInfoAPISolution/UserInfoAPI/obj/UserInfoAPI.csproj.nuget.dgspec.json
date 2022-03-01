@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj": {}
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj": {
+    "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
         "projectName": "UserInfoAPI",
-        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
+        "projectPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\UserInfoAPISolution\\UserInfoAPI\\UserInfoAPI.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\UserInfoAPISolution\\UserInfoAPI\\obj\\",
+        "outputPath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\UserInfoAPISolution\\UserInfoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

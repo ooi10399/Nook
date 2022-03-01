@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UlAa+XJ1YMUwGf4OpdlqRJKy0ByFIPk9Lp2Pbn9N8lWq/vfJhNYE9uWz357b3ysmKDgk3sPt6FHJT9LKordSrw==",
+  "dgSpecHash": "+Fo0AV5fagHWT2F/Im+w4WQfxkJjTLrQMKb/VGO6qoocZZnIwj070HiD7YRc+y+e8JGSUenPZh2fvfL0waFY+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\Documents\\ahyun_workLife\\Collabera\\team2Assignment\\NOOK to GitHub\\01032022_v3_errorhandling_sessionExpired\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.14\\microsoft.aspnetcore.authentication.jwtbearer.5.0.14.nupkg.sha512",
