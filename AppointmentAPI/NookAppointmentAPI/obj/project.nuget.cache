@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aKuWMIKOT8mhmfrgewuubsgK/fgsHtIl4L1llonfVjmJ0sOBrfsmpGgsKMAgQmJVu2wi4GH4T3iOle4EkyyH+Q==",
+  "dgSpecHash": "S9cT9oULFhlQMy+eFhQAZnb/8tPe3qTvQ4nmt+0zzuhuiSTuBNKK8LCpmKeAQYk+R1iyk5AQRVtdtgRrQENjKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\johan\\source\\repos\\NookTemp\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
+  "projectFilePath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\AppointmentAPI\\NookAppointmentAPI\\NookAppointmentAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\johan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\johan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

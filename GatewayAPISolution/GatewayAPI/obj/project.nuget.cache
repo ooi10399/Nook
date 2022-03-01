@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VMEmpaVw+a+QKo6fpeRuFyqSHNCp08ml7UJJoCVvagyMHXi3vf0xWH+bj2bvqoMslSNpFql71AKGpQe1wnthpw==",
+  "dgSpecHash": "/sSImL0fKlUwYF4Q/NDtg10OAtxgf8GuDgr02u+kPjqX8gf0f4rSUUj8JTtcAN40mdfXk4q/q18CNpBLfvaFbA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\johan\\source\\repos\\NookTemp\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
+  "projectFilePath": "C:\\Users\\johan\\GitLocalRepos\\Nook\\GatewayAPISolution\\GatewayAPI\\GatewayAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\johan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\johan\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.14\\microsoft.aspnetcore.authentication.jwtbearer.5.0.14.nupkg.sha512",

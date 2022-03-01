@@ -15,13 +15,13 @@ namespace NookMainApp.ViewModels
         public Rentee Rentee { get; set; }
         public string RenterUserName { get; set; }
         public Renter Renter { get; set; }
-        [Display(Name="Start At")]
+        [Display(Name = "Start At")]
         public DateTime StartDateTime { get; set; }
         [Display(Name = "End At")]
         public DateTime EndDateTime { get; set; }
-        [Display(Name = "Hourly Fees")]
+        [Display(Name = "Hourly Fees (SG$)")]
         public double Fees { get; set; }
-        [Display(Name = "Total Fees")]
+        [Display(Name = "Total Fees (SG$)")]
         public double TotalFees { get; set; }
         public string Remark { get; set; }
         public DateTime PlacementDate { get; set; }

@@ -35,7 +35,7 @@ namespace NookMainApp
             services.AddScoped<ISingleUserRepo<string, Appointment>, AppointmentRepo>();
             services.AddSession(opts =>
             {
-                opts.IdleTimeout = TimeSpan.FromMinutes(5);
+                opts.IdleTimeout = TimeSpan.FromMinutes(20);
             });
             services.AddHttpContextAccessor();
             // ==================================================================
