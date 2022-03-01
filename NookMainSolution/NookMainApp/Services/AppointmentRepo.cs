@@ -25,11 +25,27 @@ namespace NookMainApp.Services
         }
         public async Task<Appointment> Add(Appointment item)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+            //HttpClientHandler handler = new HttpClientHandler();
+            //StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
+            //using (var response = await new HttpClient(handler, false).PostAsync("http://localhost:47049/api/Appointment", content))
+            //{
+            //    if (response.IsSuccessStatusCode)
+            //    {
+            //        string responseText = await response.Content.ReadAsStringAsync();
+            //        var appt = JsonConvert.DeserializeObject<Appointment>(responseText);
+            //        return appt;
+            //    }
+            //}
+            //return null;
 
             HttpClientHandler handler = new HttpClientHandler();
+            HttpClient _httpClient = new HttpClient(handler, false);
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
             StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
-            using (var response = await new HttpClient(handler,false).PostAsync("http://localhost:47049/api/Appointment", content))
+            using (var response = await _httpClient.PostAsync("http://localhost:47049/api/Appointment", content))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -43,10 +59,12 @@ namespace NookMainApp.Services
 
         public async Task<Appointment> Delete(int key)
         {
+            HttpClientHandler handler = new HttpClientHandler();
+            HttpClient _httpClient = new HttpClient(handler, false);
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
 
-            HttpClientHandler handler = new HttpClientHandler();
-            using (var response = await new HttpClient(handler,false).DeleteAsync("http://localhost:47049/api/Appointment?id=" + key))
+            using (var response = await _httpClient.DeleteAsync("http://localhost:47049/api/Appointment?id=" + key))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -56,14 +74,30 @@ namespace NookMainApp.Services
                 }
             }
             return null;
+
+            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+            //HttpClientHandler handler = new HttpClientHandler();
+            //using (var response = await new HttpClient(handler,false).DeleteAsync("http://localhost:47049/api/Appointment?id=" + key))
+            //{
+            //    if (response.IsSuccessStatusCode)
+            //    {
+            //        string responseText = await response.Content.ReadAsStringAsync();
+            //        var appt = JsonConvert.DeserializeObject<Appointment>(responseText);
+            //        return appt;
+            //    }
+            //}
+            //return null;
         }
 
         public async Task<Appointment> Get(int key)
         {
+            HttpClientHandler handler = new HttpClientHandler();
+            HttpClient _httpClient = new HttpClient(handler, false);
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
 
-            HttpClientHandler handler = new HttpClientHandler();
-            using (var response = await new HttpClient(handler,false).GetAsync("http://localhost:47049/api/Appointment/GetAppointment?id=" + key))
+            using (var response = await _httpClient.GetAsync("http://localhost:47049/api/Appointment/GetAppointment?id=" + key))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -73,14 +107,30 @@ namespace NookMainApp.Services
                 }
             }
             return null;
+
+            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+            //HttpClientHandler handler = new HttpClientHandler();
+            //using (var response = await new HttpClient(handler,false).GetAsync("http://localhost:47049/api/Appointment/GetAppointment?id=" + key))
+            //{
+            //    if (response.IsSuccessStatusCode)
+            //    {
+            //        string responseText = await response.Content.ReadAsStringAsync();
+            //        var appointment = JsonConvert.DeserializeObject<Appointment>(responseText);
+            //        return appointment;
+            //    }
+            //}
+            //return null;
         }
 
         public async Task<IEnumerable<Appointment>> GetAll(string userEmail)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-           
             HttpClientHandler handler = new HttpClientHandler();
-            using (var response = await new HttpClient(handler, false).GetAsync("http://localhost:47049/api/Appointment/GetUserAppointments?userName=" + userEmail))
+            HttpClient _httpClient = new HttpClient(handler, false);
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+            using (var response = await _httpClient.GetAsync("http://localhost:47049/api/Appointment/GetUserAppointments?userName=" + userEmail))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -89,25 +139,42 @@ namespace NookMainApp.Services
                     return appointments;
                 }
             }
-            return null;
+            return null;         
         }
 
         public async Task<IEnumerable<Appointment>> GetAll()
         {
+            HttpClientHandler handler = new HttpClientHandler();
+            HttpClient _httpClient = new HttpClient(handler, false);
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-            using (_httpClient)
+
+            using (var response = await _httpClient.GetAsync("http://localhost:47049/api/Appointment/GetAllAppointments"))
             {
-                using (var response = await _httpClient.GetAsync("http://localhost:47049/api/Appointment/GetAllAppointments"))
+                if (response.IsSuccessStatusCode)
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string responseText = await response.Content.ReadAsStringAsync();
-                        var appointments = JsonConvert.DeserializeObject<List<Appointment>>(responseText);
-                        return appointments;
-                    }
+                    string responseText = await response.Content.ReadAsStringAsync();
+                    var appointments = JsonConvert.DeserializeObject<List<Appointment>>(responseText);
+                    return appointments;
                 }
             }
+            
             return null;
+
+            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+            //using (_httpClient)
+            //{
+            //    using (var response = await _httpClient.GetAsync("http://localhost:47049/api/Appointment/GetAllAppointments"))
+            //    {
+            //        if (response.IsSuccessStatusCode)
+            //        {
+            //            string responseText = await response.Content.ReadAsStringAsync();
+            //            var appointments = JsonConvert.DeserializeObject<List<Appointment>>(responseText);
+            //            return appointments;
+            //        }
+            //    }
+            //}
+            //return null;
         }
 
         public void GetToken(string token)
@@ -117,10 +184,12 @@ namespace NookMainApp.Services
 
         public async Task<Appointment> Update(Appointment item)
         {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);       
-
             HttpClientHandler handler = new HttpClientHandler();
-            using (var response = new HttpClient(handler, false))
+            HttpClient _httpClient = new HttpClient(handler, false);
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
+            using (var response = _httpClient)
             {
                 var result = await response.PutAsJsonAsync("http://localhost:47049/api/Appointment?id=" + item.AppointmentId, item);
                 if (result.IsSuccessStatusCode)
@@ -131,6 +200,21 @@ namespace NookMainApp.Services
                 }
             }
             return null;
+
+            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);       
+
+            //HttpClientHandler handler = new HttpClientHandler();
+            //using (var response = new HttpClient(handler, false))
+            //{
+            //    var result = await response.PutAsJsonAsync("http://localhost:47049/api/Appointment?id=" + item.AppointmentId, item);
+            //    if (result.IsSuccessStatusCode)
+            //    {
+            //        string responseText = await result.Content.ReadAsStringAsync();
+            //        var appointment = JsonConvert.DeserializeObject<Appointment>(responseText);
+            //        return appointment;
+            //    }
+            //}
+            //return null;
         }
     }
 }

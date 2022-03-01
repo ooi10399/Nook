@@ -32,7 +32,7 @@ namespace NookMainApp.Controllers
         public async Task<ActionResult> AllAppointment()
         {
             string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            _srepo.GetToken(token);
 
             var userName = HttpContext.Session.GetString("username");
             var appointments = await _srepo.GetAll(userName);
@@ -44,6 +44,7 @@ namespace NookMainApp.Controllers
         {
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
+            _rrepo.GetToken(token);
 
             var appt = await _repo.Get(id);
             var rentee = await _rrepo.Get(appt.RenteeUserName);
@@ -70,9 +71,12 @@ namespace NookMainApp.Controllers
         public async Task<ActionResult> CreateAppointment(string UserId)
         {
             string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            _r_repo.GetToken(token);
+            _rrepo.GetToken(token);
 
-            if(HttpContext.Session.GetString("username") != null)
+
+
+            if (HttpContext.Session.GetString("username") != null)
             {
                 var ren = await _r_repo.Get(HttpContext.Session.GetString("username"));
                 if (ren == null)
@@ -103,16 +107,7 @@ namespace NookMainApp.Controllers
                     ViewBag.Message = "Sorry, you already have a appointment on same day and time. Please check.";
                     return View(appointment);
                 }
-                   
-                //bool isRenteeApptDupliated = await CheckingRenteeAppointment(appointment.RenteeUserName, appointment.StartDateTime, appointment.EndDateTime);
-                //if (!isRenteeApptDupliated)
-                //{
-                //    {
-                //        ViewBag.Message = "Sorry, " + appointment.RenteeUserName + " is unavailable on this Date. Please try again.";
-                //        return View(appointment);
-                //    }
-                //}
-
+                                 
                 var appt = new Appointment
                 {
                     RenteeUserName = appointment.RenteeUserName,
@@ -145,7 +140,7 @@ namespace NookMainApp.Controllers
         private async Task<bool> CheckingRenteeAppointment(string renteeUserName, DateTime start, DateTime end)
         {
             string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            _srepo.GetToken(token);
 
             //check rentee availability
             var appts = await _srepo.GetAll(renteeUserName);
@@ -165,7 +160,7 @@ namespace NookMainApp.Controllers
         private async Task<bool> CheckingRenterAppointment(string userName, DateTime start, DateTime end)
         {
             string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            _srepo.GetToken(token);
 
             //check if user with any same datetime appointment
             var appts = await _srepo.GetAll(userName);
@@ -187,6 +182,7 @@ namespace NookMainApp.Controllers
         {            
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
+            _rrepo.GetToken(token);
 
             var appt = await _repo.Get(id);
             var rentee = await _rrepo.Get(appt.RenteeUserName);
@@ -268,7 +264,7 @@ namespace NookMainApp.Controllers
         private async Task<bool> CheckingRenterAppointmentByApptId(Appointment appointment, AppointmentViewModel newAppt)
         {
             string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            _srepo.GetToken(token);
 
             //check if user with any same datetime appointment
             var appts = await _srepo.GetAll(appointment.RenterUserName);
@@ -291,6 +287,7 @@ namespace NookMainApp.Controllers
         {
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
+            _rrepo.GetToken(token);
 
             var appt = await _repo.Get(id);
             var rentee = await _rrepo.Get(appt.RenteeUserName);
@@ -366,6 +363,7 @@ namespace NookMainApp.Controllers
         {
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
+            _rrepo.GetToken(token);
 
             var appt = await _repo.Get(id);
             var rentee = await _rrepo.Get(appt.RenteeUserName);
@@ -422,7 +420,7 @@ namespace NookMainApp.Controllers
         public async Task<ActionResult> AllRenteeAppointment()
         {
             string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            _srepo.GetToken(token);
 
             var userName = HttpContext.Session.GetString("username");
             var appointments = await _srepo.GetAll(userName);
@@ -439,6 +437,7 @@ namespace NookMainApp.Controllers
             {                
                 string token = HttpContext.Session.GetString("token");
                 _repo.GetToken(token);
+                _r_repo.GetToken(token);
 
                 var appt = await _repo.Get(id);
                 var renter = await _r_repo.Get(appt.RenterUserName);
@@ -523,7 +522,7 @@ namespace NookMainApp.Controllers
         private async Task<bool> CheckingRenteeAppointment(Appointment appointment, AppointmentViewModel newAppt)
         {
             string token = HttpContext.Session.GetString("token");
-            _repo.GetToken(token);
+            _srepo.GetToken(token);
 
             //check if user with any same datetime appointment
             var appts = await _srepo.GetAll(appointment.RenteeUserName);
@@ -546,6 +545,7 @@ namespace NookMainApp.Controllers
         {
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
+            _r_repo.GetToken(token);
 
             var appt = await _repo.Get(id);
             var renter = await _r_repo.Get(appt.RenterUserName);
@@ -573,8 +573,8 @@ namespace NookMainApp.Controllers
         {
             string token = HttpContext.Session.GetString("token");
             _repo.GetToken(token);
-            
-            
+            _r_repo.GetToken(token);
+
             var appt = await _repo.Get(id);
             var renter = await _r_repo.Get(appt.RenterUserName);
             if (appt != null)

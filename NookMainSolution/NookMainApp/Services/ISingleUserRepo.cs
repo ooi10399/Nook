@@ -8,5 +8,6 @@ namespace NookMainApp.Services
     public interface ISingleUserRepo<K, T>
     {
         Task<IEnumerable<T>> GetAll(K k);
+        void GetToken(string token);
     }
 }
